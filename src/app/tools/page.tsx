@@ -1,10 +1,10 @@
-import { ToolsList } from '@/components/ToolsList';
-import styles from './page.module.scss';
+import { ToolsList } from '@/components/ToolsList/ToolsList';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Tools',
+};
 
 export default function Tools() {
-  return (
-    <div className={styles.root}>
-      <ToolsList />
-    </div>
-  );
+  return <ToolsList />;
 }
