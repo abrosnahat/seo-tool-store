@@ -1,0 +1,12 @@
+@import 'mixins';
+
+.root {
+  color: #6c5fbc;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+
+  @include mq(m) {
+    font-size: 26px;
+  }
+}

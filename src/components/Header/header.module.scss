@@ -4,8 +4,12 @@
   display: flex;
   align-items: center;
   height: 86px;
-  padding: 24px 0;
   border-bottom: 1px solid #cbcbcb;
+
+  @include mq(m) {
+    height: 70px;
+    justify-content: space-between;
+  }
 }
 
 .logo {
@@ -19,6 +23,26 @@
   display: flex;
   gap: 50px;
   margin-left: 100px;
+
+  @include mq(m) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    gap: 15px;
+    transform: translateX(100%);
+    margin-left: 0;
+    padding: 20px;
+    padding-top: 75px;
+    box-shadow: 0px 20px 30px 0px rgba(70, 70, 70, 0.1);
+    border-bottom-left-radius: 12px;
+    transition: transform 0.3s;
+
+    &.isOpen {
+      transform: translateX(0%);
+    }
+  }
 }
 
 .link {
@@ -30,5 +54,15 @@
 
   &:hover {
     color: #6c5fbc;
+  }
+}
+
+.burgerIcon {
+  display: none;
+  cursor: pointer;
+  z-index: 2;
+
+  @include mq(m) {
+    display: block;
   }
 }

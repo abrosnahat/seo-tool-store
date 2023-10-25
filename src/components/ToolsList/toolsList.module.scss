@@ -1,7 +1,19 @@
-.root {
+@import 'mixins';
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tools {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
+
+  @include mq(m) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .item {
@@ -10,8 +22,19 @@
   gap: 20px;
   padding: 8px 18px;
   border-radius: 12px;
-  box-shadow: 0px 20px 30px 0px rgba(70, 70, 70, 0.1);
+  box-shadow: 0px 10px 25px 0px rgba(70, 70, 70, 0.3);
   text-decoration: none;
+
+  @include mq(m) {
+    gap: 10px;
+  }
+
+  &:hover {
+    .title {
+      color: #6c5fbc;
+      transition: color 0.2s;
+    }
+  }
 }
 
 .text {
@@ -25,6 +48,7 @@
   font-weight: 600;
   line-height: 140%;
   color: #323142;
+  transition: color 0.2s;
 }
 
 .description {
