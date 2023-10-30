@@ -8,6 +8,22 @@
   }
 }
 
+@mixin resetInput {
+  width: inherit;
+  color: inherit;
+  font-weight: inherit;
+  background: transparent;
+
+  &::placeholder {
+    color: rgba(#b6b6b6, 0.8);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+}
+
 $media: (
   3xs: 330px,
   2xs: 380px,

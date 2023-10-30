@@ -1,0 +1,45 @@
+@import 'mixins';
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+}
+
+.desktopDirection-column {
+  flex-direction: column;
+}
+
+.desktopDirection-row {
+  flex-direction: column;
+
+  @include mq(m) {
+    flex-direction: row;
+    gap: 12px;
+  }
+}
+
+.label {
+  font-size: 14px;
+  line-height: 14px;
+
+  @include mq(m) {
+    font-size: 16px;
+    line-height: 19px;
+
+    &.desktopDirection-row {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      white-space: nowrap;
+    }
+  }
+}
+
+.hideInMobile {
+  display: none;
+
+  @include mq(m) {
+    display: block;
+  }
+}

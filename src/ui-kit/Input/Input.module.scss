@@ -1,0 +1,7 @@
+@import 'mixins';
+
+.input {
+  @include resetInput;
+
+  height: 40px;
+}
