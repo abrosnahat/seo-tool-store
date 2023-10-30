@@ -1,0 +1,20 @@
+@import 'mixins';
+
+.root {
+  align-items: flex-start;
+}
+
+.textarea {
+  @include resetInput;
+
+  font-size: 14px;
+  line-height: 18px;
+  padding: 12px 0;
+  resize: none;
+
+  &::placeholder {
+    font-size: 14px;
+    color: #6c5fbc;
+    opacity: 0.5;
+  }
+}

@@ -11,3 +11,45 @@ body {
   background: #f9f9f9;
   color: #323142;
 }
+
+img:not([src]) {
+  opacity: 0;
+}
+
+h1 {
+  line-height: 1;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #1862dc;
+}
+
+input,
+input:hover,
+input:focus {
+  border: none;
+  outline: 0;
+}
+
+textarea,
+textarea:hover,
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,20 @@
+@import 'mixins';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.field {
+  max-width: 200px;
+}
+
+.textareaWrapper {
+  display: flex;
+  gap: 30px;
+
+  @include mq(m) {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,7 @@
+@import '@src/assets/styles/mixins.scss';
+
+@each $key, $value in $media {
+  .breakpoint-#{$key} {
+    @include desktop($key);
+  }
+}
