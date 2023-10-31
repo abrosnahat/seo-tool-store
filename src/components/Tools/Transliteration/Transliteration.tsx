@@ -3,14 +3,11 @@
 import { FormField } from '@/ui-kit/FormField/FormField';
 import { Input } from '@/ui-kit/Input';
 import { Textarea } from '@/ui-kit/Textarea';
-import { Metadata } from 'next';
+import { transliterate } from '@/utils/transliterate';
+import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import styles from './Transliteration.module.scss';
-
-// @TODO: Починить title
-export const metadata: Metadata = {
-  title: 'Транслитерация текста',
-};
+import CopyIcon from './img/copy.svg';
 
 export const Transliteration = () => {
   const form = useForm({
@@ -20,6 +17,11 @@ export const Transliteration = () => {
       translitText: '',
     },
   });
+
+  const translitText = transliterate(
+    form.watch('rusText'),
+    form.watch('spaceSymbol')
+  );
 
   return (
     <div className={styles.root}>
@@ -39,7 +41,13 @@ export const Transliteration = () => {
           rows={8}
           placeholder='Результат транслитерации'
           disabled
-          {...form.register('translitText')}
+          value={translitText}
+          endAdornment={
+            <Image
+              src={CopyIcon}
+              alt=''
+            />
+          }
         />
       </div>
     </div>
