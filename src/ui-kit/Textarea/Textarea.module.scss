@@ -12,6 +12,14 @@
   padding: 12px 0;
   resize: none;
 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
   &::placeholder {
     font-size: 14px;
     color: #6c5fbc;
