@@ -5,6 +5,6 @@ export const metadata: Metadata = {
   title: 'Инструменты',
 };
 
-export default function Tools() {
+export default function ToolsPage() {
   return <ToolsList />;
 }
