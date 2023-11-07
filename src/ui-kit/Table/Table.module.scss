@@ -1,0 +1,33 @@
+.root {
+  max-width: 100%;
+  padding: 0 10px;
+  background: #ffffff;
+  box-shadow: 0px 10px 25px 0px rgba(70, 70, 70, 0.25);
+  border-radius: 12px;
+}
+
+.thead {
+  text-align: left;
+}
+
+.th,
+.td {
+  padding: 10px;
+}
+
+.th,
+.td {
+  border: none;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.th {
+  border-bottom: 1px solid #cbcbcb;
+}

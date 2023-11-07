@@ -5,7 +5,7 @@ interface ToolsProps {
   tool: ToolsType;
 }
 
-export const Tools: React.FC<ToolsProps> = ({ tool }) => {
+export const Tool: React.FC<ToolsProps> = ({ tool }) => {
   const tools: Record<ToolsType, React.ReactNode> = {
     transliteration: <Transliteration />,
   };

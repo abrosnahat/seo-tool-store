@@ -20,13 +20,6 @@ h1 {
   line-height: 1;
 }
 
-ul,
-ol {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
 a {
   text-decoration: none;
   color: #1862dc;

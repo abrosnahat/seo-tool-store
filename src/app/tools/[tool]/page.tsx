@@ -1,5 +1,5 @@
 import { Title } from '@/components/Title/Title';
-import { Tools } from '@/components/Tools/Tools';
+import { Tool } from '@/components/Tool/Tool';
 import { TOOLS_TITLE } from '@/constants/tools';
 import { ToolsType } from '@/types/tools';
 import { Metadata } from 'next';
@@ -17,11 +17,11 @@ export async function generateMetadata({
   };
 }
 
-export default function Tool({ params }: ToolsProps) {
+export default function ToolPage({ params }: ToolsProps) {
   return (
     <div className={styles.root}>
       <Title>{TOOLS_TITLE[params.tool]}</Title>
-      <Tools tool={params.tool} />
+      <Tool tool={params.tool} />
     </div>
   );
 }

@@ -33,3 +33,21 @@
     }
   }
 }
+
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 18px;
+}
+
+.textList {
+  padding-left: 30px;
+}
