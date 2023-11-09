@@ -12,6 +12,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: 'SEO Tool Store',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
 };
 
 export default function RootLayout({

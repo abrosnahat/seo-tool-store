@@ -1,5 +1,6 @@
 'use client';
 
+import useOutsideClickRef from '@rooks/use-outside-click-ref';
 import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,12 +11,17 @@ import BurgerIcon from './img/burger.svg';
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [ref] = useOutsideClickRef(() => setIsOpen(!isOpen), isOpen);
+
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <header className={styles.root}>
+    <header
+      ref={ref}
+      className={styles.root}
+    >
       <Link
         href='/'
         className={styles.logo}
