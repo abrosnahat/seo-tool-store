@@ -21,11 +21,12 @@
 
 .nav {
   position: relative;
-  display: none;
+  display: flex;
   gap: 50px;
   margin-left: 100px;
 
   @include mq(m) {
+    display: none;
     position: absolute;
     top: 0;
     right: 0;
