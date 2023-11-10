@@ -1,3 +1,4 @@
+import { Footer } from '@/components/Footer/Footer';
 import { Header } from '@/components/Header/Header';
 import classNames from 'classnames';
 import type { Metadata } from 'next';
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={classNames(montserrat.className, styles.root)}>
         <Header />
         <main className={styles.main}>{children}</main>
+        <Footer />
       </body>
     </html>
   );
