@@ -1,0 +1,47 @@
+@import 'mixins';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.advantages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px 20px;
+
+  @include mq(m) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq(s) {
+    grid-template-columns: 100%;
+  }
+}
+
+.advantage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 10px 25px 0px rgba(70, 70, 70, 0.25);
+}
+
+.title {
+  color: #323142;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.subtitle {
+  color: #323142;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 140%;
+}

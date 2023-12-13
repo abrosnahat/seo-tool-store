@@ -3,7 +3,7 @@ import { Header } from '@/components/Header/Header';
 import classNames from 'classnames';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
-import './globals.css';
+import './globals.scss';
 import styles from './layout.module.scss';
 
 const montserrat = Montserrat({

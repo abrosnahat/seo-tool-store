@@ -1,0 +1,69 @@
+@import 'mixins';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-bottom: 100px;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary::-moz-list-bullet {
+  list-style-type: none;
+}
+
+.summary::marker {
+  content: none;
+  display: none;
+}
+
+.details {
+  border-bottom: 1px solid #adadad;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  cursor: pointer;
+  padding: 20px 10px;
+  color: #323142;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.plus {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  color: #ffffff;
+  background: #6c5fbc;
+  border-radius: 50px;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 24px;
+
+  &::after {
+    content: '+';
+  }
+}
+
+.details[open] .summary {
+  .plus {
+    &::after {
+      content: '-';
+    }
+  }
+}
+
+.answer {
+  padding: 20px 10px;
+  padding-top: 0;
+}
