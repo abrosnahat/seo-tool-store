@@ -1,5 +1,11 @@
+@import 'mixins';
+
 .root {
   display: flex;
   flex-direction: column;
   gap: 100px;
+
+  @include mq(m) {
+    gap: 50px;
+  }
 }
