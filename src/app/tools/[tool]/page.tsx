@@ -1,5 +1,5 @@
 import { Title } from '@/components/Title/Title';
-import { Tool } from '@/components/Tools/Tool';
+import { Tools } from '@/components/Tools/Tools';
 import { TOOLS_TITLE } from '@/constants/tools';
 import { ToolType } from '@/types/tools';
 import { camelize } from '@/utils/camelize';
@@ -24,7 +24,7 @@ export default function ToolPage({ params }: ToolsProps) {
   return (
     <div className={styles.root}>
       <Title>{TOOLS_TITLE[toolType]}</Title>
-      <Tool tool={toolType} />
+      <Tools tool={toolType} />
     </div>
   );
 }
