@@ -1,7 +1,0 @@
-@import 'mixins';
-
-.root {
-  @include mq(m) {
-    font-size: 14px;
-  }
-}

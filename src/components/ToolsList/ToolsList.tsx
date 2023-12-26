@@ -1,9 +1,8 @@
 import { TOOLS } from '@/data/tools';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Title } from '../Title/Title';
+import { ToolIcon } from '../ToolIcon/ToolIcon';
 import styles from './ToolsList.module.scss';
-import Icon from './icon.svg';
 
 export const ToolsList = () => {
   return (
@@ -21,13 +20,7 @@ export const ToolsList = () => {
                 className={styles.item}
                 key={tool.id}
               >
-                <Image
-                  src={Icon}
-                  width={40}
-                  height={40}
-                  className={styles.icon}
-                  alt='icon'
-                />
+                <ToolIcon toolType={tool.type} />
                 <div className={styles.text}>
                   <div className={styles.title}>{tool.title}</div>
                   <div className={styles.description}>{tool.description}</div>
@@ -40,4 +33,3 @@ export const ToolsList = () => {
     </div>
   );
 };
-
