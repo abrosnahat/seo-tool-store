@@ -1,12 +1,12 @@
 import cn from 'classnames';
-import styles from './Description.module.scss';
+import styles from './ToolContentText.module.scss';
 
-interface DescriptionProps {
+interface ToolContentTextProps {
   children: React.ReactNode;
   className?: string;
 }
 
-export const Description: React.FC<DescriptionProps> = ({
+export const ToolContentText: React.FC<ToolContentTextProps> = ({
   children,
   className,
 }) => {

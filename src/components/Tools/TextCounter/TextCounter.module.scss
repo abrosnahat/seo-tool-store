@@ -1,0 +1,38 @@
+@import 'mixins';
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 30px;
+
+  @include mq(m) {
+    grid-template-columns: 100%;
+  }
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 10px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 25px 0px rgba(70, 70, 70, 0.25);
+}
+
+.statLabel {
+  font-weight: 500;
+}
+
+.statValue {
+  font-weight: 600;
+}
+
+.icon {
+  cursor: pointer;
+  pointer-events: all;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}

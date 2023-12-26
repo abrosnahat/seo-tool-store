@@ -1,5 +1,7 @@
 'use client';
 
+import { ToolContent } from '@/components/ToolContent/ToolContent';
+import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
 import { FormField } from '@/ui-kit/FormField/FormField';
 import { Input } from '@/ui-kit/Input';
 import { Table } from '@/ui-kit/Table/Table';
@@ -8,7 +10,6 @@ import { copyTextToClipBoard } from '@/utils/browser';
 import { transliterate } from '@/utils/transliterate';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
-import { Description } from '../Description/Description';
 import styles from './Transliteration.module.scss';
 import ClearIcon from './img/clear.svg';
 import CopyIcon from './img/copy.svg';
@@ -32,11 +33,11 @@ export const Transliteration = () => {
   };
 
   return (
-    <div className={styles.root}>
-      <Description>
+    <ToolContent>
+      <ToolContentText>
         Транслитерация онлайн - это простой и удобный сервис, предназначенный
         для преобразования текста с кириллицы в латиницу.
-      </Description>
+      </ToolContentText>
       <FormField
         className={styles.field}
         label='Пробел символом:'
@@ -73,16 +74,16 @@ export const Transliteration = () => {
           {...form.register('translitText')}
         />
       </div>
-      <p className={styles.text}>
+      <ToolContentText>
         Транслит с русского на английский включает замену каждой буквы русского
         алфавита соответствующей буквой английского алфавита. Например, буква
         &quot;а&quot; заменяется на &quot;a&quot;, &quot;б&quot; на
         &quot;b&quot;, &quot;в&quot; на &quot;v&quot; и так далее.
-      </p>
+      </ToolContentText>
       <div className={styles.table}>
-        <p className={styles.text}>
+        <ToolContentText>
           Вот несколько примеров транслитерации с русского на английский:
-        </p>
+        </ToolContentText>
         <Table
           headers={['Русский', 'Транслитерация']}
           data={[
@@ -132,6 +133,6 @@ export const Transliteration = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </ToolContent>
   );
 };

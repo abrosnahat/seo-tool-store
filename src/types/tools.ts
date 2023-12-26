@@ -1,2 +1,1 @@
-export type ToolsType = 'transliteration';
-
+export type ToolType = 'transliteration' | 'textCounter';
