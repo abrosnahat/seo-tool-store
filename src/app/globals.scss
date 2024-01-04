@@ -1,3 +1,5 @@
+@import 'mixins';
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -54,4 +56,48 @@ button {
 .swiper-button-next:after,
 .swiper-button-prev:after {
   color: #6c5fbc;
+}
+
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+  border: 2px solid #6c5fbc !important;
+}
+
+.ql-toolbar.ql-snow {
+  border-bottom: none !important;
+  border-radius: 15px 15px 0 0;
+}
+
+.ql-container.ql-snow {
+  border-radius: 0 0 15px 15px;
+
+  @include boxShadow;
+}
+
+button:hover .ql-stroke,
+.ql-picker-label:hover .ql-stroke {
+  fill: none;
+  stroke: #6c5fbc !important;
+}
+
+.ql-active .ql-stroke {
+  fill: none;
+  stroke: #6c5fbc !important;
+}
+
+button:hover .ql-fill,
+.ql-picker-label:hover .ql-fill {
+  fill: #6c5fbc !important;
+  stroke: none;
+}
+
+.ql-active .ql-fill {
+  fill: #6c5fbc !important;
+  stroke: none;
+}
+
+.ql-snow.ql-toolbar .ql-picker-label:hover,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar .ql-picker-item:hover {
+  color: #6c5fbc !important;
 }

@@ -68,6 +68,7 @@ export const HtmlRedactor = () => {
           onChange={setCode}
           modules={modules}
           formats={formats}
+          className={styles.quill}
         />
       </div>
 
@@ -178,4 +179,4 @@ export const HtmlRedactor = () => {
 };
 
 const REDACTOR_DEFAULT_VALUE =
-  '<h1><strong>Заголовок H1</strong></h1><p><br></p><p>Введите текст здесь 🤗</p>';
+  '<h2><strong>Заголовок H2</strong></h2><p><br></p><p>Введите текст здесь 🤗</p>';
