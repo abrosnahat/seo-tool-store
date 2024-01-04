@@ -1,1 +1,1 @@
-export type ToolType = 'transliteration' | 'textCounter';
+export type ToolType = 'transliteration' | 'textCounter' | 'htmlRedactor';

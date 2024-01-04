@@ -25,7 +25,7 @@ export const TextCounter = () => {
         тексте.
       </ToolContentText>
       <Textarea
-        rows={14}
+        rows={12}
         placeholder='Введите текст'
         endAdornment={
           <Image

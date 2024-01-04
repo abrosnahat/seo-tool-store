@@ -2,17 +2,16 @@
 
 import { ToolContent } from '@/components/ToolContent/ToolContent';
 import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
+import { CopyText } from '@/ui-kit/CopyText/CopyText';
 import { FormField } from '@/ui-kit/FormField/FormField';
 import { Input } from '@/ui-kit/Input';
 import { Table } from '@/ui-kit/Table/Table';
 import { Textarea } from '@/ui-kit/Textarea';
-import { copyTextToClipBoard } from '@/utils/browser';
 import { transliterate } from '@/utils/transliterate';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import styles from './Transliteration.module.scss';
 import ClearIcon from './img/clear.svg';
-import CopyIcon from './img/copy.svg';
 
 export const Transliteration = () => {
   const form = useForm({
@@ -27,10 +26,6 @@ export const Transliteration = () => {
     form.watch('rusText'),
     form.watch('spaceSymbol')
   );
-
-  const copyText = async () => {
-    await copyTextToClipBoard(translitText);
-  };
 
   return (
     <ToolContent>
@@ -63,14 +58,7 @@ export const Transliteration = () => {
           disabled
           placeholder='Результат транслитерации'
           value={translitText}
-          endAdornment={
-            <Image
-              className={styles.icon}
-              src={CopyIcon}
-              alt='copy'
-              onClick={copyText}
-            />
-          }
+          endAdornment={<CopyText text={translitText} />}
           {...form.register('translitText')}
         />
       </div>
