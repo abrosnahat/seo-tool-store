@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M50 0L50 0L50 50L0 50L0 0L50 0Z" id="path_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#path_1" clip-rule="evenodd" fill-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="Html 5">
+    <path d="M50 0L50 0L50 50L0 50L0 0L50 0Z" id="Html-5" fill="none" stroke="none" />
+    <path d="M9 7L12 41L26 45L40 41C41 29.667 42 18.333 43 7L9 7L9 7ZM11.1836 9L40.8164 9L38.1289 39.4551L26 42.9199L13.8711 39.4551L11.1836 9L11.1836 9ZM18.5508 15L17.5898 27L30.5801 27L30.1699 32L26 32.6191L21.8809 32L21.6992 30L17.8398 30L18.2305 35L25.9902 37L33.7598 35L34.75 23L22.0898 23L22.4102 19L30.7695 19L31 21L34.6992 21L34 15L18.5508 15L18.5508 15Z" id="Shape" fill="#6C5FBC" fill-rule="evenodd" stroke="none" clip-path="url(#clip_1)" />
+    <path d="M9 7L12 41L26 45L40 41C41 29.667 42 18.333 43 7L9 7L9 7ZM11.1836 9L40.8164 9L38.1289 39.4551L26 42.9199L13.8711 39.4551L11.1836 9L11.1836 9ZM18.5508 15L17.5898 27L30.5801 27L30.1699 32L26 32.6191L21.8809 32L21.6992 30L17.8398 30L18.2305 35L25.9902 37L33.7598 35L34.75 23L22.0898 23L22.4102 19L30.7695 19L31 21L34.6992 21L34 15L18.5508 15L18.5508 15Z" id="Shape" fill="#6C5FBC" fill-rule="evenodd" stroke="none" clip-path="url(#clip_1)" />
+  </g>
+</svg>

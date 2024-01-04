@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .wrapper {
   width: 100%;
 }
@@ -14,7 +16,8 @@
   border: 2px solid #6c5fbc;
   border-radius: 18px;
   user-select: none;
-  box-shadow: 0px 10px 25px 0px rgba(70, 70, 70, 0.25);
+
+  @include boxShadow;
 
   &.isDisabled {
     pointer-events: none;

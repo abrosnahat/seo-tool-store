@@ -1,9 +1,12 @@
+@import 'mixins';
+
 .root {
   max-width: 100%;
   padding: 0 10px;
   background: #ffffff;
-  box-shadow: 0px 10px 25px 0px rgba(70, 70, 70, 0.25);
   border-radius: 12px;
+
+  @include boxShadow;
 }
 
 .thead {
