@@ -1,1 +1,5 @@
-export type ToolType = 'transliteration' | 'textCounter' | 'htmlRedactor';
+export type ToolType =
+  | 'transliteration'
+  | 'textCounter'
+  | 'htmlRedactor'
+  | 'convertRegister';

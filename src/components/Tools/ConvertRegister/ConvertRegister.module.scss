@@ -1,0 +1,25 @@
+@import 'mixins';
+
+.textareaWrapper {
+  display: flex;
+  gap: 30px;
+
+  @include mq(m) {
+    flex-direction: column;
+  }
+}
+
+.textList {
+  padding-left: 30px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 18px;
+
+  @include mq(m) {
+    font-size: 16px;
+  }
+}
