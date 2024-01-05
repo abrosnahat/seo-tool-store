@@ -2,13 +2,12 @@
 
 import { ToolContent } from '@/components/ToolContent/ToolContent';
 import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
+import { ClearText } from '@/ui-kit/ClearText/ClearText';
 import { Textarea } from '@/ui-kit/Textarea';
 import { textCounter } from '@/utils/textCounter';
-import Image from 'next/image';
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './TextCounter.module.scss';
-import ClearIcon from './img/clear.svg';
 
 export const TextCounter = () => {
   const form = useForm();
@@ -27,14 +26,7 @@ export const TextCounter = () => {
       <Textarea
         rows={12}
         placeholder='Введите текст'
-        endAdornment={
-          <Image
-            className={styles.icon}
-            src={ClearIcon}
-            alt='clear'
-            onClick={() => form.setValue('text', '')}
-          />
-        }
+        endAdornment={<ClearText onClick={() => form.setValue('text', '')} />}
         {...form.register('text')}
       />
 

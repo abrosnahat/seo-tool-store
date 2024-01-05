@@ -2,16 +2,15 @@
 
 import { ToolContent } from '@/components/ToolContent/ToolContent';
 import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
+import { ClearText } from '@/ui-kit/ClearText/ClearText';
 import { CopyText } from '@/ui-kit/CopyText/CopyText';
 import { FormField } from '@/ui-kit/FormField/FormField';
 import { Input } from '@/ui-kit/Input';
 import { Table } from '@/ui-kit/Table/Table';
 import { Textarea } from '@/ui-kit/Textarea';
 import { transliterate } from '@/utils/transliterate';
-import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import styles from './Transliteration.module.scss';
-import ClearIcon from './img/clear.svg';
 
 export const Transliteration = () => {
   const form = useForm({
@@ -44,12 +43,7 @@ export const Transliteration = () => {
           rows={8}
           placeholder='Введите текст на русском'
           endAdornment={
-            <Image
-              className={styles.icon}
-              src={ClearIcon}
-              alt='clear'
-              onClick={() => form.setValue('rusText', '')}
-            />
+            <ClearText onClick={() => form.setValue('rusText', '')} />
           }
           {...form.register('rusText')}
         />

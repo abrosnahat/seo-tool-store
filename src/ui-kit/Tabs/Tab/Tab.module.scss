@@ -1,0 +1,47 @@
+@import 'mixins';
+
+.root {
+  flex: 1 0 auto;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+  padding: 8px;
+  border-radius: 10px;
+  transition: 0.3 background;
+
+  &.isActive,
+  &:hover {
+    color: #fff;
+    background: #6c5fbc;
+  }
+
+  @include mq(m) {
+    font-size: 16px;
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  fill: #8992ad;
+}
+
+.isActive .icon svg {
+  fill: #ccced7;
+}
+
+.root:hover .icon svg {
+  fill: #8992ad;
+}
