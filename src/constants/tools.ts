@@ -5,4 +5,5 @@ export const TOOLS_TITLE: Record<ToolType, string> = {
   textCounter: 'Подсчет длины текста и строки',
   htmlRedactor: 'HTML редактор онлайн',
   convertRegister: 'Конвертер регистров',
+  deleteDuplicate: 'Удаление дубликатов',
 };
