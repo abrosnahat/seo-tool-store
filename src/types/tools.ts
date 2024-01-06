@@ -2,4 +2,5 @@ export type ToolType =
   | 'transliteration'
   | 'textCounter'
   | 'htmlRedactor'
-  | 'convertRegister';
+  | 'convertRegister'
+  | 'deleteDuplicate';
