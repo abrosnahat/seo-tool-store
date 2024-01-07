@@ -4,4 +4,5 @@ export type ToolType =
   | 'htmlRedactor'
   | 'convertRegister'
   | 'deleteDuplicate'
-  | 'wordCombiner';
+  | 'wordCombiner'
+  | 'lineCounter';

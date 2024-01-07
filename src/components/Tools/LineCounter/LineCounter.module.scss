@@ -1,0 +1,11 @@
+@import 'mixins';
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+
+  @include boxShadow;
+}
