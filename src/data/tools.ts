@@ -59,9 +59,16 @@ export const TOOLS: Tools = [
         id: '6',
         type: 'wordCombiner',
         url: 'word-combiner',
-        title: 'Комбинатор ключевых слов и фраз',
+        title: 'Комбинатор ключевых слов',
         description:
           'Инструмент помогает перемножить слова и фразы из каждого списка слов.',
+      },
+      {
+        id: '7',
+        type: 'lineCounter',
+        url: 'line-counter',
+        title: 'Подсчет строк онлайн',
+        description: 'Посчитает количество строк в тексте с учетом переносов.',
       },
     ],
   },

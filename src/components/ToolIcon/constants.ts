@@ -3,6 +3,7 @@ import { ImageProps } from 'next/image';
 import ConvertRegisterIcon from './img/convert-register.svg';
 import DeleteDuplicateIcon from './img/delete-duplicate.svg';
 import HtmlRedactor from './img/html-redactor.svg';
+import LineCounterIcon from './img/line-counter.svg';
 import TextCounterIcon from './img/text-counter.svg';
 import TransliterationIcon from './img/transliteration.svg';
 import WordCombinerIcon from './img/word-combiner.svg';
@@ -14,4 +15,5 @@ export const TOOLS_ICONS: Record<ToolType, ImageProps['src']> = {
   convertRegister: ConvertRegisterIcon,
   deleteDuplicate: DeleteDuplicateIcon,
   wordCombiner: WordCombinerIcon,
+  lineCounter: LineCounterIcon,
 };

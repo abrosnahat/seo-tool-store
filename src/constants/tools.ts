@@ -7,4 +7,5 @@ export const TOOLS_TITLE: Record<ToolType, string> = {
   convertRegister: 'Конвертер регистров',
   deleteDuplicate: 'Удаление дубликатов',
   wordCombiner: 'Комбинатор ключевых слов и фраз',
+  lineCounter: 'Посчитать количество строк онлайн',
 };

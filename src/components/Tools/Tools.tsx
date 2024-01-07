@@ -2,6 +2,7 @@ import { ToolType } from '@/types/tools';
 import { ConvertRegister } from './ConvertRegister/ConvertRegister';
 import { DeleteDuplicate } from './DeleteDuplicate/DeleteDuplicate';
 import { HtmlRedactor } from './HtmlRedactor/HtmlRedactor';
+import { LineCounter } from './LineCounter/LineCounter';
 import { TextCounter } from './TextCounter/TextCounter';
 import { Transliteration } from './Transliteration/Transliteration';
 import { WordCombiner } from './WordCombiner/WordCombiner';
@@ -18,6 +19,7 @@ export const Tools: React.FC<ToolsProps> = ({ tool }) => {
     convertRegister: <ConvertRegister />,
     deleteDuplicate: <DeleteDuplicate />,
     wordCombiner: <WordCombiner />,
+    lineCounter: <LineCounter />,
   };
 
   return <>{tools[tool]}</>;
