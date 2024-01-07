@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import styles from './Header.module.scss';
 import BurgerIcon from './img/burger.svg';
+import Logo from './img/sts-logo.svg';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,11 @@ export const Header = () => {
         href='/'
         className={styles.logo}
       >
-        Logo
+        <Image
+          width={150}
+          src={Logo}
+          alt='STS Logo'
+        />
       </Link>
       <nav className={cn(styles.nav, isOpen && styles.isOpen)}>
         <Link

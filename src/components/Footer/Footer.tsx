@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Footer.module.scss';
+import Logo from './img/sts-logo.svg';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,7 +13,11 @@ export const Footer = () => {
           href='/'
           className={styles.logo}
         >
-          Logo
+          <Image
+            width={150}
+            src={Logo}
+            alt='STS Logo'
+          />
         </Link>
         <nav className={styles.nav}>
           <Link
