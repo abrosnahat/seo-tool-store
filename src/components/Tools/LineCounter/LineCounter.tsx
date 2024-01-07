@@ -13,7 +13,7 @@ export const LineCounter = () => {
   const form = useForm();
   const textValue = form.watch('text');
 
-  const result = useMemo(() => lineCounter(textValue), [textValue]);
+  const result = useMemo(() => lineCounter(textValue), [textValue]) || 0;
 
   return (
     <ToolContent>
