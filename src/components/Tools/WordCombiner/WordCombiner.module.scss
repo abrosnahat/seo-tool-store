@@ -1,0 +1,57 @@
+@import 'mixins';
+
+.textareaWrapper {
+  display: flex;
+  gap: 30px;
+
+  @include mq(m) {
+    flex-direction: column;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 18px;
+
+  @include mq(m) {
+    font-size: 16px;
+  }
+}
+
+.textList {
+  padding-left: 30px;
+}
+
+.button {
+  height: 40px;
+  margin-right: auto;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 12px;
+
+  @include boxShadow;
+}
+
+.checkboxWrapper {
+  display: flex;
+  gap: 15px 30px;
+  flex-wrap: wrap;
+
+  @include mq(m) {
+    flex-direction: column;
+  }
+}

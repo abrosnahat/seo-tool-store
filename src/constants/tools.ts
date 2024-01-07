@@ -6,4 +6,5 @@ export const TOOLS_TITLE: Record<ToolType, string> = {
   htmlRedactor: 'HTML редактор онлайн',
   convertRegister: 'Конвертер регистров',
   deleteDuplicate: 'Удаление дубликатов',
+  wordCombiner: 'Комбинатор ключевых слов и фраз',
 };

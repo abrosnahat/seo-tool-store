@@ -3,4 +3,5 @@ export type ToolType =
   | 'textCounter'
   | 'htmlRedactor'
   | 'convertRegister'
-  | 'deleteDuplicate';
+  | 'deleteDuplicate'
+  | 'wordCombiner';

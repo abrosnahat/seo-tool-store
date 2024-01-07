@@ -45,7 +45,7 @@ export const textCounter = (text: string) => {
     }
   });
 
-  const words = text?.split(' ');
+  const words = text?.split(spaceRegex);
 
   words?.forEach((word) => {
     if (word.length > 0 && alphaNumericRegex.test(word)) {
