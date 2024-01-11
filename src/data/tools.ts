@@ -70,6 +70,14 @@ export const TOOLS: Tools = [
         title: 'Подсчет строк онлайн',
         description: 'Посчитает количество строк в тексте с учетом переносов.',
       },
+      {
+        id: '8',
+        type: 'faqSchemaGenerator',
+        url: 'faq-schema-generator',
+        title: 'Google Rich Snippets для FAQ',
+        description:
+          'Генерируйте метаданные для блока FAQ в формате HTML и JSON-LD.',
+      },
     ],
   },
 ];

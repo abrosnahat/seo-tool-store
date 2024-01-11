@@ -1,0 +1,78 @@
+@import 'mixins';
+
+.tool {
+  display: flex;
+  gap: 30px;
+
+  @include mq(m) {
+    flex-direction: column;
+  }
+}
+
+.faq,
+.code {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.faqItem {
+  display: flex;
+  gap: 5px;
+  padding: 15px;
+  border-radius: 15px;
+
+  @include boxShadow;
+}
+
+.faqInputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.delete {
+  cursor: pointer;
+  pointer-events: all;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 18px;
+
+  @include mq(m) {
+    font-size: 16px;
+  }
+}
+
+.textList {
+  padding-left: 30px;
+}
+
+.example {
+  display: block;
+  object-fit: contain;
+  width: 700px;
+  max-width: 100%;
+  height: 100%;
+  border-radius: 15px;
+
+  @include boxShadow;
+}

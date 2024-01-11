@@ -8,4 +8,5 @@ export const TOOLS_TITLE: Record<ToolType, string> = {
   deleteDuplicate: 'Удаление дубликатов',
   wordCombiner: 'Комбинатор ключевых слов и фраз',
   lineCounter: 'Посчитать количество строк онлайн',
+  faqSchemaGenerator: 'Генератор FAQPage JSON-LD разметки',
 };
