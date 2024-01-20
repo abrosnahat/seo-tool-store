@@ -1,5 +1,6 @@
 import { Title } from '@/components/Title/Title';
-import { Button } from '@/ui-kit/Button';
+import { Button } from '@nextui-org/react';
+import Link from 'next/link';
 import styles from './AboutUs.module.scss';
 
 export const AboutUs = () => {
@@ -21,8 +22,11 @@ export const AboutUs = () => {
           </p>
           <Button
             className={styles.allTools}
+            as={Link}
             href='/tools'
-            variant='purple'
+            variant='shadow'
+            color='primary'
+            size='lg'
           >
             Начать пользоваться
           </Button>

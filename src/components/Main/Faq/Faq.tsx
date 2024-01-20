@@ -1,6 +1,7 @@
 'use client';
 
 import { Title } from '@/components/Title/Title';
+import { Accordion, AccordionItem } from '@nextui-org/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
@@ -11,19 +12,20 @@ export const Faq = () => {
     <section className={styles.root}>
       <Title>FAQ</Title>
 
-      <div>
+      <Accordion
+        variant='shadow'
+        selectionMode='multiple'
+      >
         {FAQ.map((item) => (
-          <details
-            className={styles.details}
+          <AccordionItem
             key={item.id}
+            aria-label={item.question}
+            title={item.question}
           >
-            <summary className={styles.summary}>
-              {item.question} <span className={styles.plus}></span>
-            </summary>
-            <p className={styles.answer}>{item.answer}</p>
-          </details>
+            {item.answer}
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
     </section>
   );
 };

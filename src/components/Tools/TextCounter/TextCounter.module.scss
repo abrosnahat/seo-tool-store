@@ -1,6 +1,7 @@
 @import 'mixins';
 
 .stats {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px 30px;
@@ -12,10 +13,8 @@
 
 .stat {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  padding: 15px 10px;
-  border-radius: 10px;
-  @include boxShadow;
 }
 
 .statLabel {

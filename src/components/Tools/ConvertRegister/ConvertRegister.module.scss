@@ -1,16 +1,13 @@
 @import 'mixins';
 
 .textareaWrapper {
+  width: 100%;
   display: flex;
   gap: 30px;
 
-  @include mq(m) {
+  @include mq(l) {
     flex-direction: column;
   }
-}
-
-.textList {
-  padding-left: 30px;
 }
 
 .text {

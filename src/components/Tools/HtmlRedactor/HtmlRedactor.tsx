@@ -3,8 +3,8 @@
 import { ToolContent } from '@/components/ToolContent/ToolContent';
 import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
 import { CopyText } from '@/ui-kit/CopyText/CopyText';
-import { Loader } from '@/ui-kit/Loader';
 import { htmlToMarkdown } from '@/utils/htmlToMarkdown';
+import { Spinner } from '@nextui-org/react';
 import cn from 'classnames';
 import beautify from 'js-beautify';
 import dynamic from 'next/dynamic';
@@ -14,7 +14,7 @@ import 'react-quill/dist/quill.snow.css';
 import styles from './HtmlRedactor.module.scss';
 const ReactQuill = dynamic(() => import('react-quill'), {
   ssr: false,
-  loading: () => <Loader />,
+  loading: () => <Spinner />,
 });
 
 const modules = {
@@ -62,7 +62,7 @@ export const HtmlRedactor = () => {
         программистам, верстальщикам и контент-менеджерам.
       </ToolContentText>
       <div className={styles.block}>
-        <h2>Визуальный редактор</h2>
+        <h2 className='text-2xl font-bold'>Визуальный редактор</h2>
         <ReactQuill
           value={code}
           onChange={setCode}
@@ -73,7 +73,7 @@ export const HtmlRedactor = () => {
       </div>
 
       <div className={styles.block}>
-        <h2>HTML</h2>
+        <h2 className='text-2xl font-bold'>HTML</h2>
         <div className={styles.code}>
           <CopyText
             text={code}
@@ -110,7 +110,7 @@ export const HtmlRedactor = () => {
         </div>
       </div>
       <div className={styles.block}>
-        <h2>Markdown</h2>
+        <h2 className='text-2xl font-bold'>Markdown</h2>
         <div className={styles.code}>
           <CopyText
             text={markdown}
@@ -152,7 +152,9 @@ export const HtmlRedactor = () => {
         принцип называется WYSIWYG и расшифровывается как What You See Is What
         You Get.
       </ToolContentText>
-      <h2>Как работает онлайн-редактор кода HTML</h2>
+      <h2 className='text-2xl font-bold'>
+        Как работает онлайн-редактор кода HTML
+      </h2>
       <ToolContentText>
         Наш текстовый HTML редактор обладает простым и интуитивно понятным
         интерфейсом, что делает навигацию и внесение изменений максимально

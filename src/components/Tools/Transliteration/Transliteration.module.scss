@@ -5,6 +5,7 @@
 }
 
 .textareaWrapper {
+  width: 100%;
   display: flex;
   gap: 30px;
 
@@ -40,8 +41,4 @@
   @include mq(m) {
     font-size: 16px;
   }
-}
-
-.textList {
-  padding-left: 30px;
 }

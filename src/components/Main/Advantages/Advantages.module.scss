@@ -26,21 +26,15 @@
   align-items: center;
   text-align: center;
   gap: 20px;
-  padding: 30px;
-  background: #ffffff;
-  border-radius: 15px;
-  @include boxShadow;
 }
 
 .title {
-  color: #323142;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
 }
 
 .subtitle {
-  color: #323142;
   font-size: 14px;
   font-weight: 500;
   line-height: 140%;

@@ -4,7 +4,7 @@ import { Banner } from '@/components/Main/Banner/Banner';
 import { Faq } from '@/components/Main/Faq/Faq';
 import { PopularTools } from '@/components/Main/PopularTools/PopularTools';
 import { Reviews } from '@/components/Main/Reviews/Reviews';
-import { Divider } from '@/ui-kit/Divider/Divider';
+import { Divider } from '@nextui-org/react';
 import styles from './page.module.scss';
 
 export default function Home() {

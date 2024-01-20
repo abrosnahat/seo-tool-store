@@ -1,16 +1,10 @@
-.root {
-  position: relative;
-  background: #eaeaea;
+@import 'mixins';
 
-  &::after {
-    content: '';
-    position: absolute;
-    left: -1000%;
-    top: 0;
-    width: 10000%;
-    height: 100%;
-    background: #eaeaea;
-    z-index: 0;
+.root {
+  padding: 0 calc(50% - 624px);
+
+  @include mq(xl) {
+    padding: 0 20px;
   }
 }
 
@@ -21,6 +15,16 @@
 
   &:hover {
     color: #6c5fbc;
+  }
+}
+
+.logo {
+  width: 150px;
+  height: 64px;
+
+  @include mq(m) {
+    width: 100px;
+    height: 44px;
   }
 }
 
