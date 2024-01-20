@@ -1,39 +1,62 @@
-import styles from './Table.module.scss';
+import {
+  TableBody,
+  TableCell,
+  TableColumn,
+  Table as TableComponent,
+  TableHeader,
+  TableRow,
+  getKeyValue,
+} from '@nextui-org/react';
 
 interface TableProps {
-  data: Record<string, string>[];
-  headers: string[];
+  rows: Record<string, string>[];
+  columns: { key: string; label: string }[];
 }
 
-export const Table: React.FC<TableProps> = ({ data, headers }) => {
+export const Table: React.FC<TableProps> = ({ rows, columns }) => {
   return (
-    <table className={styles.root}>
-      <thead className={styles.thead}>
-        <tr>
-          {headers.map((header, index) => (
-            <th
-              key={index}
-              className={styles.th}
-            >
-              {header}
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((row, index) => (
-          <tr key={index}>
-            {Object.values(row).map((value, index) => (
-              <td
-                key={index}
-                className={styles.td}
-              >
-                {value}
-              </td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <TableComponent>
+      <TableHeader columns={columns}>
+        {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+      </TableHeader>
+      <TableBody items={rows}>
+        {(item) => (
+          <TableRow key={item.key}>
+            {(columnKey) => (
+              <TableCell>{getKeyValue(item, columnKey)}</TableCell>
+            )}
+          </TableRow>
+        )}
+      </TableBody>
+    </TableComponent>
+
+    // <table className={styles.root}>
+    //   <thead className={styles.thead}>
+    //     <tr>
+    //       {headers.map((header, index) => (
+    //         <th
+    //           key={index}
+    //           className={styles.th}
+    //         >
+    //           {header}
+    //         </th>
+    //       ))}
+    //     </tr>
+    //   </thead>
+    //   <tbody>
+    //     {data.map((row, index) => (
+    //       <tr key={index}>
+    //         {Object.values(row).map((value, index) => (
+    //           <td
+    //             key={index}
+    //             className={styles.td}
+    //           >
+    //             {value}
+    //           </td>
+    //         ))}
+    //       </tr>
+    //     ))}
+    //   </tbody>
+    // </table>
   );
 };

@@ -3,10 +3,10 @@
 import { ToolContent } from '@/components/ToolContent/ToolContent';
 import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
 import { ClearText } from '@/ui-kit/ClearText/ClearText';
-import { Textarea } from '@/ui-kit/Textarea';
 import { textCounter } from '@/utils/textCounter';
+import { Card, CardBody, Textarea } from '@nextui-org/react';
 import { useMemo } from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import styles from './TextCounter.module.scss';
 
 export const TextCounter = () => {
@@ -23,54 +23,79 @@ export const TextCounter = () => {
         число знаков с учетом пробелов и без, а также определить сколько слов в
         тексте.
       </ToolContentText>
-      <Textarea
-        rows={12}
-        placeholder='Введите текст'
-        endAdornment={<ClearText onClick={() => form.setValue('text', '')} />}
-        {...form.register('text')}
+
+      <Controller
+        name='text'
+        control={form.control}
+        render={({ field }) => (
+          <Textarea
+            {...field}
+            minRows={12}
+            variant='faded'
+            color='primary'
+            placeholder='Введите текст'
+            endContent={<ClearText onClick={() => form.setValue('text', '')} />}
+          />
+        )}
       />
 
       <div className={styles.stats}>
-        <div className={styles.stat}>
-          <span className={styles.statLabel}>Количество слов</span>
-          <span className={styles.statValue}>{stats.words}</span>
-        </div>
-        <div className={styles.stat}>
-          <span className={styles.statLabel}> Количество символов</span>
-          <span className={styles.statValue}>{stats.chars}</span>
-        </div>
-        <div className={styles.stat}>
-          <span className={styles.statLabel}>
-            Количество символов без пробелов
-          </span>
-          <span className={styles.statValue}>{stats.charsNoSpaces}</span>
-        </div>
-        <div className={styles.stat}>
-          <span className={styles.statLabel}>Количество пробелов</span>
-          <span className={styles.statValue}>{stats.spaces}</span>
-        </div>
-        <div className={styles.stat}>
-          <span className={styles.statLabel}>
-            Количество кириллических символов
-          </span>
-          <span className={styles.statValue}>{stats.cyrillic}</span>
-        </div>
-        <div className={styles.stat}>
-          <span className={styles.statLabel}>
-            Количество латинских символов
-          </span>
-          <span className={styles.statValue}>{stats.latin}</span>
-        </div>
-        <div className={styles.stat}>
-          <span className={styles.statLabel}>Количество цифр</span>
-          <span className={styles.statValue}>{stats.digits}</span>
-        </div>
-        <div className={styles.stat}>
-          <span className={styles.statLabel}>
-            Количество остальных символов
-          </span>
-          <span className={styles.statValue}>{stats.others}</span>
-        </div>
+        <Card>
+          <CardBody className={styles.stat}>
+            <span className={styles.statLabel}>Количество слов</span>
+            <span className={styles.statValue}>{stats.words}</span>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody className={styles.stat}>
+            <span className={styles.statLabel}> Количество символов</span>
+            <span className={styles.statValue}>{stats.chars}</span>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody className={styles.stat}>
+            <span className={styles.statLabel}>
+              Количество символов без пробелов
+            </span>
+            <span className={styles.statValue}>{stats.charsNoSpaces}</span>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody className={styles.stat}>
+            <span className={styles.statLabel}>Количество пробелов</span>
+            <span className={styles.statValue}>{stats.spaces}</span>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody className={styles.stat}>
+            <span className={styles.statLabel}>
+              Количество кириллических символов
+            </span>
+            <span className={styles.statValue}>{stats.cyrillic}</span>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody className={styles.stat}>
+            <span className={styles.statLabel}>
+              Количество латинских символов
+            </span>
+            <span className={styles.statValue}>{stats.latin}</span>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody className={styles.stat}>
+            <span className={styles.statLabel}>Количество цифр</span>
+            <span className={styles.statValue}>{stats.digits}</span>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardBody className={styles.stat}>
+            <span className={styles.statLabel}>
+              Количество остальных символов
+            </span>
+            <span className={styles.statValue}>{stats.others}</span>
+          </CardBody>
+        </Card>
       </div>
 
       <ToolContentText>
@@ -81,7 +106,7 @@ export const TextCounter = () => {
         сохраняется и не может быть использован третьими лицами.
       </ToolContentText>
 
-      <h2>Как пользоваться инструментом</h2>
+      <h2 className='text-2xl font-bold'>Как пользоваться инструментом</h2>
       <ToolContentText>
         Процедура анализа проста: скопируйте необходимый фрагмент или весь текст
         и вставьте его в специальное окно для подсчета длины. С помощью

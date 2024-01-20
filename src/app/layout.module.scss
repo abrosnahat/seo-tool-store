@@ -1,19 +1,37 @@
 @import 'mixins';
 
 .root {
+  position: relative;
   margin: 0 auto;
-  padding: 0px calc(50% - 624px);
-
-  @include mq(xl) {
-    padding: 0 20px;
-  }
 }
 
 .main {
   min-height: calc(100vh - 224px);
-  padding: 50px 0;
+  padding: 50px calc(50% - 624px);
+
+  @include mq(xl) {
+    padding: 50px 20px;
+  }
 
   @include mq(m) {
     min-height: calc(100vh - 208px);
   }
+}
+
+.bgRight,
+.bgLeft {
+  display: none;
+  position: fixed;
+  z-index: -2;
+  opacity: 0.8;
+}
+
+.bgRight {
+  top: -600px;
+  right: -800px;
+}
+
+.bgLeft {
+  top: 100px;
+  left: -600px;
 }

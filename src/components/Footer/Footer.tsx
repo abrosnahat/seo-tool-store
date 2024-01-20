@@ -14,7 +14,7 @@ export const Footer = () => {
           className={styles.logo}
         >
           <Image
-            width={150}
+            className={styles.logo}
             src={Logo}
             alt='STS Logo'
           />

@@ -1,10 +1,14 @@
 import { Footer } from '@/components/Footer/Footer';
 import { Header } from '@/components/Header/Header';
-import classNames from 'classnames';
+import cn from 'classnames';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
-import './globals.scss';
+import Image from 'next/image';
+import './globals.css';
+import BgLeft from './img/bg-left.png';
+import BgRight from './img/bg-right.png';
 import styles from './layout.module.scss';
+import { Providers } from './providers';
 
 const montserrat = Montserrat({
   subsets: ['cyrillic'],
@@ -23,10 +27,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ru'>
-      <body className={classNames(montserrat.className, styles.root)}>
-        <Header />
-        <main className={styles.main}>{children}</main>
-        <Footer />
+      <body className={cn(montserrat.className, styles.root)}>
+        <Providers>
+          <Header />
+          <main className={styles.main}>{children}</main>
+          <Footer />
+        </Providers>
+        <Image
+          className={cn(styles.bgLeft, 'dark:block')}
+          src={BgLeft}
+          alt=''
+        />
+        <Image
+          className={cn(styles.bgRight, 'dark:block')}
+          src={BgRight}
+          alt=''
+        />
       </body>
     </html>
   );

@@ -1,54 +1,72 @@
 'use client';
 
-import useOutsideClickRef from '@rooks/use-outside-click-ref';
-import cn from 'classnames';
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+} from '@nextui-org/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
 import styles from './Header.module.scss';
-import BurgerIcon from './img/burger.svg';
 import Logo from './img/sts-logo.svg';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [ref] = useOutsideClickRef(() => setIsOpen(!isOpen), isOpen);
-
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <header
-      ref={ref}
-      className={styles.root}
+    <Navbar
+      position='static'
+      isBordered
+      className='py-3'
     >
-      <Link
-        href='/'
-        className={styles.logo}
-      >
-        <Image
-          width={150}
-          src={Logo}
-          alt='STS Logo'
-        />
-      </Link>
-      <nav className={cn(styles.nav, isOpen && styles.isOpen)}>
+      <NavbarBrand>
         <Link
-          href='/tools'
-          className={styles.link}
+          href='/'
+          className={styles.logo}
         >
-          Инструменты
+          <Image
+            className={styles.logo}
+            src={Logo}
+            alt='STS Logo'
+          />
         </Link>
-      </nav>
-      <Image
-        onClick={handleToggle}
-        src={BurgerIcon}
-        className={styles.burgerIcon}
-        width={34}
-        height={25}
-        alt='burger icon'
-      />
-    </header>
+      </NavbarBrand>
+      <NavbarContent
+        className={styles.nav}
+        justify='center'
+      >
+        <NavbarItem>
+          <Link
+            href='/tools'
+            className={styles.link}
+          >
+            Инструменты
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent justify='end'>
+        <ThemeSwitcher />
+        <NavbarMenuToggle
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          className={styles.menuToggle}
+        />
+      </NavbarContent>
+      <NavbarMenu>
+        <NavbarMenuItem>
+          <Link
+            href='/tools'
+            className={styles.link}
+          >
+            Инструменты
+          </Link>
+        </NavbarMenuItem>
+      </NavbarMenu>
+    </Navbar>
   );
 };

@@ -5,12 +5,10 @@ import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
 import { TabsKey } from '@/types/convertRegister';
 import { ClearText } from '@/ui-kit/ClearText/ClearText';
 import { CopyText } from '@/ui-kit/CopyText/CopyText';
-import { Tab } from '@/ui-kit/Tabs/Tab/Tab';
-import { Tabs } from '@/ui-kit/Tabs/Tabs';
-import { Textarea } from '@/ui-kit/Textarea';
 import { convertText } from '@/utils/convertRegister';
+import { Tab, Tabs, Textarea } from '@nextui-org/react';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import styles from './ConvertRegister.module.scss';
 
 export const ConvertRegister = () => {
@@ -18,6 +16,7 @@ export const ConvertRegister = () => {
   const form = useForm({
     defaultValues: {
       text: '',
+      resultText: '',
     },
   });
 
@@ -35,46 +34,58 @@ export const ConvertRegister = () => {
         доступен онлайн и в нем отсутствуют ограничения по объему символов.
       </ToolContentText>
       <div className={styles.textareaWrapper}>
-        <Textarea
-          rows={12}
-          placeholder='Исходный текст'
-          endAdornment={<ClearText onClick={() => form.setValue('text', '')} />}
-          {...form.register('text')}
+        <Controller
+          name='text'
+          control={form.control}
+          render={({ field }) => (
+            <Textarea
+              {...field}
+              minRows={12}
+              variant='faded'
+              color='primary'
+              placeholder='Исходный текст'
+              endContent={
+                <ClearText onClick={() => form.setValue('text', '')} />
+              }
+            />
+          )}
         />
-        <Textarea
-          rows={12}
-          disabled
-          placeholder='Результат'
-          value={resultText}
-          endAdornment={<CopyText text={resultText} />}
+        <Controller
+          name='resultText'
+          control={form.control}
+          render={({ field }) => (
+            <Textarea
+              {...field}
+              minRows={12}
+              value={resultText}
+              variant='faded'
+              color='primary'
+              placeholder='Исходный текст'
+              endContent={<CopyText text={resultText} />}
+              disabled
+            />
+          )}
         />
       </div>
-      <Tabs<TabsKey>
-        value={currentTab}
-        onChange={onTabChange}
-        className={styles.tabs}
+
+      <Tabs
+        items={TABS}
+        color='primary'
+        classNames={{
+          tabList: 'flex-wrap lg:flex-nowrap',
+        }}
+        selectedKey={currentTab}
+        onSelectionChange={setCurrentTab as any}
+        fullWidth
       >
-        <Tab<TabsKey>
-          value='upperCase'
-          label={'ВЕРХНИЙ РЕГИСТР'}
-        />
-        <Tab<TabsKey>
-          value='lowerCase'
-          label={'нижний регистр'}
-        />
-        <Tab<TabsKey>
-          value='capitalLetters'
-          label={'Заглавные Буквы'}
-        />
-        <Tab<TabsKey>
-          value='registerInversion'
-          label={'иНВЕРСИЯ рЕГИСТРА'}
-        />
-        <Tab<TabsKey>
-          value='bySuggestions'
-          label={'По предложениям'}
-        />
+        {(item) => (
+          <Tab
+            key={item.id}
+            title={item.label}
+          />
+        )}
       </Tabs>
+
       <ToolContentText>
         Инструмент незаменим для работы редакторов, копирайтеров, журналистов.
         Помогает при написании курсовых, рефератов и дипломов. Конвертер
@@ -87,13 +98,13 @@ export const ConvertRegister = () => {
         каждое слово текста заглавной буквой, чередует регистры, оставляет
         только строчные буквы.
       </ToolContentText>
-      <h2>Как пользоваться инструментом</h2>
+      <h2 className='text-2xl font-bold'>Как пользоваться инструментом</h2>
 
       <div className={styles.text}>
         <ToolContentText>
           Для изменения регистра текста необходимо:
         </ToolContentText>
-        <ul className={styles.textList}>
+        <ul className='list-inside list-disc'>
           <li>вставить или написать текст в левое поле;</li>
           <li>выбрать необходимую настройку ниже;</li>
           <li>
@@ -105,3 +116,26 @@ export const ConvertRegister = () => {
     </ToolContent>
   );
 };
+
+const TABS: { id: TabsKey; label: string }[] = [
+  {
+    id: 'upperCase',
+    label: 'ВЕРХНИЙ РЕГИСТР',
+  },
+  {
+    id: 'lowerCase',
+    label: 'нижний регистр',
+  },
+  {
+    id: 'capitalLetters',
+    label: 'Заглавные Буквы',
+  },
+  {
+    id: 'registerInversion',
+    label: 'иНВЕРСИЯ рЕГИСТРА',
+  },
+  {
+    id: 'bySuggestions',
+    label: 'По предложениям',
+  },
+];

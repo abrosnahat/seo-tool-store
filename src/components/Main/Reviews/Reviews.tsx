@@ -1,6 +1,7 @@
 'use client';
 
 import { Title } from '@/components/Title/Title';
+import { Card, CardBody } from '@nextui-org/react';
 import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -36,35 +37,34 @@ export const Reviews = () => {
         }}
       >
         {REVIEWS.map((review) => (
-          <SwiperSlide
-            key={review.id}
-            className={styles.slide}
-          >
-            <div className={styles.header}>
-              <div className={styles.user}>
+          <SwiperSlide key={review.id}>
+            <Card>
+              <CardBody className={styles.slide}>
+                <div className={styles.header}>
+                  <div className={styles.user}>
+                    <Image
+                      src={review.image}
+                      className={styles.avatar}
+                      alt='avatar'
+                    />
+                    <span className={styles.name}>{review.name}</span>
+                  </div>
+                  <Image
+                    width={40}
+                    height={30}
+                    src={QuotesIcon}
+                    alt='quotes'
+                  />
+                </div>
+                <p className={styles.text}>{review.text}</p>
                 <Image
-                  src={review.image}
-                  width={50}
-                  height={50}
-                  className={styles.avatar}
-                  alt='avatar'
+                  src={StarsIcon}
+                  width={100}
+                  height={16}
+                  alt='stars'
                 />
-                <span className={styles.name}>{review.name}</span>
-              </div>
-              <Image
-                width={40}
-                height={30}
-                src={QuotesIcon}
-                alt='quotes'
-              />
-            </div>
-            <p className={styles.text}>{review.text}</p>
-            <Image
-              src={StarsIcon}
-              width={100}
-              height={16}
-              alt='stars'
-            />
+              </CardBody>
+            </Card>
           </SwiperSlide>
         ))}
       </Swiper>
