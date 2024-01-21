@@ -2,14 +2,13 @@
 
 import { ToolContent } from '@/components/ToolContent/ToolContent';
 import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
-import { Button } from '@/ui-kit/Button';
 import { ClearText } from '@/ui-kit/ClearText/ClearText';
-import { Textarea } from '@/ui-kit/Textarea';
-import { useForm } from 'react-hook-form';
+import { Button, Textarea } from '@nextui-org/react';
+import { useState } from 'react';
 import styles from './DeleteDuplicate.module.scss';
 
 export const DeleteDuplicate = () => {
-  const form = useForm();
+  const [text, setText] = useState('');
 
   const handleDeleteDuplicate = (text: string) => {
     const result = text
@@ -19,7 +18,7 @@ export const DeleteDuplicate = () => {
       })
       .join('\n');
 
-    form.setValue('text', result);
+    setText(result);
   };
 
   return (
@@ -35,19 +34,23 @@ export const DeleteDuplicate = () => {
           Введите список для удаления дубликатов
         </ToolContentText>
         <Textarea
-          rows={12}
-          endAdornment={<ClearText onClick={() => form.setValue('text', '')} />}
-          {...form.register('text')}
+          minRows={12}
+          variant='faded'
+          color='primary'
+          value={text}
+          onValueChange={setText}
+          endContent={<ClearText onClick={() => setText('')} />}
         />
       </div>
       <Button
-        className={styles.button}
-        variant='purple'
-        onClick={() => handleDeleteDuplicate(form.getValues('text'))}
+        variant='shadow'
+        color='primary'
+        size='lg'
+        onClick={() => handleDeleteDuplicate(text)}
       >
         Удалить дубли
       </Button>
-      <h2>Как пользоваться инструментом</h2>
+      <h2 className='text-2xl font-bold'>Как пользоваться инструментом</h2>
       <div className={styles.text}>
         <ToolContentText>
           Для того, чтобы удалить дубликаты из списка необходимо:

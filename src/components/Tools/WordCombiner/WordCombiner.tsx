@@ -2,14 +2,12 @@
 
 import { ToolContent } from '@/components/ToolContent/ToolContent';
 import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
-import { Button } from '@/ui-kit/Button';
-import { Checkbox } from '@/ui-kit/Checkbox/Checkbox';
 import { ClearText } from '@/ui-kit/ClearText/ClearText';
 import { CopyText } from '@/ui-kit/CopyText/CopyText';
-import { Textarea } from '@/ui-kit/Textarea';
 import { wordCombiner } from '@/utils/wordCombiner';
+import { Button, Card, CardBody, Checkbox, Textarea } from '@nextui-org/react';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import styles from './WordCombiner.module.scss';
 
 export const WordCombiner = () => {
@@ -52,70 +50,104 @@ export const WordCombiner = () => {
       </ToolContentText>
 
       <div className={styles.textareaWrapper}>
-        <Textarea
-          rows={12}
-          placeholder='Список слов'
-          endAdornment={
-            <ClearText onClick={() => form.setValue('input1', '')} />
-          }
-          {...form.register('input1')}
+        <Controller
+          name='input1'
+          control={form.control}
+          render={({ field }) => (
+            <Textarea
+              {...field}
+              minRows={12}
+              variant='faded'
+              color='primary'
+              placeholder='Список слов'
+              endContent={
+                <ClearText onClick={() => form.setValue('input1', '')} />
+              }
+            />
+          )}
         />
-        <Textarea
-          rows={12}
-          placeholder='Список слов'
-          endAdornment={
-            <ClearText onClick={() => form.setValue('input2', '')} />
-          }
-          {...form.register('input2')}
+        <Controller
+          name='input2'
+          control={form.control}
+          render={({ field }) => (
+            <Textarea
+              {...field}
+              minRows={12}
+              variant='faded'
+              color='primary'
+              placeholder='Список слов'
+              endContent={
+                <ClearText onClick={() => form.setValue('input2', '')} />
+              }
+            />
+          )}
         />
-        <Textarea
-          rows={12}
-          placeholder='Список слов'
-          endAdornment={
-            <ClearText onClick={() => form.setValue('input3', '')} />
-          }
-          {...form.register('input3')}
+        <Controller
+          name='input3'
+          control={form.control}
+          render={({ field }) => (
+            <Textarea
+              {...field}
+              minRows={12}
+              variant='faded'
+              color='primary'
+              placeholder='Список слов'
+              endContent={
+                <ClearText onClick={() => form.setValue('input3', '')} />
+              }
+            />
+          )}
         />
       </div>
 
-      <div className={styles.settings}>
-        <ToolContentText>
-          <b>Дополнительные настройки</b>
-        </ToolContentText>
-        <div className={styles.checkboxWrapper}>
-          <Checkbox
-            checked={form.watch('withQuotes')}
-            onChange={(e) => form.setValue('withQuotes', e.target.checked)}
-            label={'Заключить в " "'}
-          />
-          <Checkbox
-            checked={form.watch('squareBrackets')}
-            onChange={(e) => form.setValue('squareBrackets', e.target.checked)}
-            label={'Заключить в [ ]'}
-          />
-          <Checkbox
-            checked={form.watch('showWithoutOperators')}
-            onChange={(e) =>
-              form.setValue('showWithoutOperators', e.target.checked)
-            }
-            label={'Добавить комбинации без операторов'}
-            disabled={
-              !(
-                form.getValues('withQuotes') || form.getValues('squareBrackets')
-              )
-            }
-          />
-          <Checkbox
-            checked={form.watch('addPlus')}
-            onChange={(e) => form.setValue('addPlus', e.target.checked)}
-            label={'Добавить «+» к стоп-словам'}
-          />
-        </div>
-      </div>
+      <Card>
+        <CardBody className={styles.settings}>
+          <ToolContentText>
+            <b>Дополнительные настройки</b>
+          </ToolContentText>
+          <div className={styles.checkboxWrapper}>
+            <Checkbox
+              checked={form.watch('withQuotes')}
+              onChange={(e) => form.setValue('withQuotes', e.target.checked)}
+            >
+              {'Заключить в " "'}
+            </Checkbox>
+            <Checkbox
+              checked={form.watch('squareBrackets')}
+              onChange={(e) =>
+                form.setValue('squareBrackets', e.target.checked)
+              }
+            >
+              Заключить в [ ]
+            </Checkbox>
+            <Checkbox
+              checked={form.watch('showWithoutOperators')}
+              onChange={(e) =>
+                form.setValue('showWithoutOperators', e.target.checked)
+              }
+              isDisabled={
+                !(
+                  form.getValues('withQuotes') ||
+                  form.getValues('squareBrackets')
+                )
+              }
+            >
+              Добавить комбинации без операторов
+            </Checkbox>
+            <Checkbox
+              checked={form.watch('addPlus')}
+              onChange={(e) => form.setValue('addPlus', e.target.checked)}
+            >
+              Добавить «+» к стоп-словам
+            </Checkbox>
+          </div>
+        </CardBody>
+      </Card>
 
       <Button
-        className={styles.button}
-        variant='purple'
+        variant='shadow'
+        color='primary'
+        size='lg'
         onClick={handleWordCombiner}
       >
         Сгенерировать фразы
@@ -124,15 +156,23 @@ export const WordCombiner = () => {
       {form.getValues('result') && (
         <div className={styles.result}>
           <ToolContentText>Всего строк: {numberCombinations}</ToolContentText>
-          <Textarea
-            rows={12}
-            endAdornment={<CopyText text={form.getValues('result')} />}
-            {...form.register('result')}
+          <Controller
+            name='result'
+            control={form.control}
+            render={({ field }) => (
+              <Textarea
+                {...field}
+                minRows={12}
+                variant='faded'
+                color='primary'
+                endContent={<CopyText text={form.getValues('result')} />}
+              />
+            )}
           />
         </div>
       )}
 
-      <h2>Как пользоваться комбинатором</h2>
+      <h2 className='text-2xl font-bold'>Как пользоваться комбинатором</h2>
       <ToolContentText>
         Вы можете ввести слова в каждый из нужных вам поля или скопировать их из
         файла. Затем остается нажать кнопку «Сгенерировать фразы». Пустые или
@@ -150,7 +190,7 @@ export const WordCombiner = () => {
           В результате использования комбинатора ключевых фраз получается список
           готовых запросов:
         </ToolContentText>
-        <ul className={styles.textList}>
+        <ul className='list-inside list-disc'>
           <li>Ремонт стиральной машины Москва</li>
         </ul>
         <ToolContentText>

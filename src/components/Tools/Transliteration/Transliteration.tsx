@@ -4,12 +4,10 @@ import { ToolContent } from '@/components/ToolContent/ToolContent';
 import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
 import { ClearText } from '@/ui-kit/ClearText/ClearText';
 import { CopyText } from '@/ui-kit/CopyText/CopyText';
-import { FormField } from '@/ui-kit/FormField/FormField';
-import { Input } from '@/ui-kit/Input';
 import { Table } from '@/ui-kit/Table/Table';
-import { Textarea } from '@/ui-kit/Textarea';
 import { transliterate } from '@/utils/transliterate';
-import { useForm } from 'react-hook-form';
+import { Input, Textarea } from '@nextui-org/react';
+import { Controller, useForm } from 'react-hook-form';
 import styles from './Transliteration.module.scss';
 
 export const Transliteration = () => {
@@ -32,28 +30,55 @@ export const Transliteration = () => {
         Транслитерация онлайн - это простой и удобный сервис, предназначенный
         для преобразования текста с кириллицы в латиницу.
       </ToolContentText>
-      <FormField
-        className={styles.field}
-        label='Пробел символом:'
-      >
-        <Input {...form.register('spaceSymbol')} />
-      </FormField>
+
+      <Controller
+        name='spaceSymbol'
+        control={form.control}
+        render={({ field }) => (
+          <Input
+            {...field}
+            variant='faded'
+            label='Пробел символом:'
+            labelPlacement='outside'
+            placeholder=' '
+            className='w-25'
+            color='primary'
+          />
+        )}
+      />
+
       <div className={styles.textareaWrapper}>
-        <Textarea
-          rows={8}
-          placeholder='Введите текст на русском'
-          endAdornment={
-            <ClearText onClick={() => form.setValue('rusText', '')} />
-          }
-          {...form.register('rusText')}
+        <Controller
+          name='rusText'
+          control={form.control}
+          render={({ field }) => (
+            <Textarea
+              {...field}
+              minRows={8}
+              variant='faded'
+              color='primary'
+              placeholder='Введите текст на русском'
+              endContent={
+                <ClearText onClick={() => form.setValue('rusText', '')} />
+              }
+            />
+          )}
         />
-        <Textarea
-          rows={8}
-          disabled
-          placeholder='Результат транслитерации'
-          value={translitText}
-          endAdornment={<CopyText text={translitText} />}
-          {...form.register('translitText')}
+        <Controller
+          name='translitText'
+          control={form.control}
+          render={({ field }) => (
+            <Textarea
+              {...field}
+              minRows={8}
+              variant='faded'
+              color='primary'
+              placeholder='Результат транслитерации'
+              value={translitText}
+              endContent={<CopyText text={translitText} />}
+              disabled
+            />
+          )}
         />
       </div>
       <ToolContentText>
@@ -67,23 +92,26 @@ export const Transliteration = () => {
           Вот несколько примеров транслитерации с русского на английский:
         </ToolContentText>
         <Table
-          headers={['Русский', 'Транслитерация']}
-          data={[
-            { ru: 'Привет', translit: 'Privet' },
-            { ru: 'Таблица', translit: 'Tablica' },
-            { ru: 'Загранпаспорт', translit: 'Zagranpasport' },
+          columns={[
+            { key: 'ru', label: 'Русский' },
+            { key: 'translit', label: 'Транслитерация' },
+          ]}
+          rows={[
+            { key: '1', ru: 'Привет', translit: 'Privet' },
+            { key: '2', ru: 'Таблица', translit: 'Tablica' },
+            { key: '3', ru: 'Загранпаспорт', translit: 'Zagranpasport' },
           ]}
         />
       </div>
       <div className={styles.text}>
-        <h2>Инструкция</h2>
+        <h2 className='text-2xl font-bold'>Инструкция</h2>
         <p>
           Работать с программой очень просто. В левом окне вставляете текст на
           кириллице, а затем алгоритм мгновенно распознает и обрабатывает этот
           фрагмент. Готовый результат транслитерации отобразиться в правом окне.
         </p>
         <p>Используйте в своей работе:</p>
-        <ul className={styles.textList}>
+        <ul className='list-inside list-disc'>
           <li>
             Разделитель слов – позволяет добавить любой символ или букву на
             место пробела;
@@ -101,9 +129,9 @@ export const Transliteration = () => {
         </p>
       </div>
       <div className={styles.text}>
-        <h2>Где применяется</h2>
+        <h2 className='text-2xl font-bold'>Где применяется</h2>
         <p>Основные направления по использованию инструмента:</p>
-        <ul className={styles.textList}>
+        <ul className='list-inside list-disc'>
           <li>
             Используется веб-мастерами в SEO оптимизации сайтов для того, чтобы
             сформировать ЧеловекоПонятный УРЛ (ЧПУ).

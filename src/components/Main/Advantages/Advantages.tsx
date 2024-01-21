@@ -1,4 +1,5 @@
 import { Title } from '@/components/Title/Title';
+import { Card, CardBody } from '@nextui-org/react';
 import Image from 'next/image';
 import styles from './Advantages.module.scss';
 import FreeIcon from './img/free.png';
@@ -14,20 +15,19 @@ export const Advantages = () => {
       <Title>Наши преимущества</Title>
       <div className={styles.advantages}>
         {ADVANTAGES.map((advantage, index) => (
-          <div
-            key={index}
-            className={styles.advantage}
-          >
-            <Image
-              src={advantage.image}
-              width={80}
-              height={80}
-              className={styles.icon}
-              alt='icon'
-            />
-            <div className={styles.title}>{advantage.title}</div>
-            <p className={styles.subtitle}>{advantage.subtitle}</p>
-          </div>
+          <Card key={index}>
+            <CardBody className={styles.advantage}>
+              <Image
+                src={advantage.image}
+                width={80}
+                height={80}
+                className={styles.icon}
+                alt='icon'
+              />
+              <div className={styles.title}>{advantage.title}</div>
+              <p className={styles.subtitle}>{advantage.subtitle}</p>
+            </CardBody>
+          </Card>
         ))}
       </div>
     </section>

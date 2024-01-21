@@ -1,6 +1,7 @@
 @import 'mixins';
 
 .textareaWrapper {
+  width: 100%;
   display: flex;
   gap: 30px;
 
@@ -20,30 +21,23 @@
   }
 }
 
-.textList {
-  padding-left: 30px;
-}
-
 .button {
   height: 40px;
   margin-right: auto;
 }
 
 .result {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
 .settings {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: #ffffff;
-  padding: 15px;
-  border-radius: 12px;
-
-  @include boxShadow;
 }
 
 .checkboxWrapper {
