@@ -4,9 +4,10 @@ import { ToolContent } from '@/components/ToolContent/ToolContent';
 import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
 import { CopyText } from '@/ui-kit/CopyText/CopyText';
 import { htmlToMarkdown } from '@/utils/htmlToMarkdown';
-import { Spinner } from '@nextui-org/react';
+import { Card, CardBody, Spinner } from '@nextui-org/react';
 import cn from 'classnames';
 import beautify from 'js-beautify';
+import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
 import { Highlight, themes } from 'prism-react-renderer';
 import { useState } from 'react';
@@ -50,6 +51,7 @@ const formats = [
 ];
 
 export const HtmlRedactor = () => {
+  const { theme } = useTheme();
   const [code, setCode] = useState(REDACTOR_DEFAULT_VALUE);
 
   const markdown = htmlToMarkdown(code);
@@ -63,88 +65,96 @@ export const HtmlRedactor = () => {
       </ToolContentText>
       <div className={styles.block}>
         <h2 className='text-2xl font-bold'>Визуальный редактор</h2>
-        <ReactQuill
-          value={code}
-          onChange={setCode}
-          modules={modules}
-          formats={formats}
-          className={styles.quill}
-        />
+        <Card>
+          <CardBody className='p-0'>
+            <ReactQuill
+              value={code}
+              onChange={setCode}
+              modules={modules}
+              formats={formats}
+              className={styles.quill}
+            />
+          </CardBody>
+        </Card>
       </div>
 
       <div className={styles.block}>
         <h2 className='text-2xl font-bold'>HTML</h2>
-        <div className={styles.code}>
-          <CopyText
-            text={code}
-            className={styles.copy}
-          />
-          <Highlight
-            theme={themes.oneLight}
-            code={beautify.html(code)}
-            language='html'
-          >
-            {({ className, style, tokens, getLineProps, getTokenProps }) => (
-              <pre
-                className={cn(className, styles.pre)}
-                style={style}
-              >
-                <code>
-                  {tokens.map((line, index) => (
-                    <div
-                      {...getLineProps({ line, key: index })}
-                      key={index}
-                    >
-                      {line.map((token, key) => (
-                        <span
-                          {...getTokenProps({ token, key })}
-                          key={key}
-                        />
-                      ))}
-                    </div>
-                  ))}
-                </code>
-              </pre>
-            )}
-          </Highlight>
-        </div>
+        <Card>
+          <CardBody>
+            <CopyText
+              text={code}
+              className={styles.copy}
+            />
+            <Highlight
+              theme={theme === 'light' ? themes.oneLight : themes.oneDark}
+              code={beautify.html(code)}
+              language='html'
+            >
+              {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                <pre
+                  className={cn(className, styles.pre)}
+                  style={style}
+                >
+                  <code>
+                    {tokens.map((line, index) => (
+                      <div
+                        {...getLineProps({ line, key: index })}
+                        key={index}
+                      >
+                        {line.map((token, key) => (
+                          <span
+                            {...getTokenProps({ token, key })}
+                            key={key}
+                          />
+                        ))}
+                      </div>
+                    ))}
+                  </code>
+                </pre>
+              )}
+            </Highlight>
+          </CardBody>
+        </Card>
       </div>
       <div className={styles.block}>
         <h2 className='text-2xl font-bold'>Markdown</h2>
-        <div className={styles.code}>
-          <CopyText
-            text={markdown}
-            className={styles.copy}
-          />
-          <Highlight
-            theme={themes.oneLight}
-            code={markdown}
-            language='markdown'
-          >
-            {({ className, style, tokens, getLineProps, getTokenProps }) => (
-              <pre
-                className={cn(className, styles.pre)}
-                style={style}
-              >
-                <code>
-                  {tokens.map((line, index) => (
-                    <div
-                      {...getLineProps({ line, key: index })}
-                      key={index}
-                    >
-                      {line.map((token, key) => (
-                        <span
-                          {...getTokenProps({ token, key })}
-                          key={key}
-                        />
-                      ))}
-                    </div>
-                  ))}
-                </code>
-              </pre>
-            )}
-          </Highlight>
-        </div>
+        <Card>
+          <CardBody>
+            <CopyText
+              text={markdown}
+              className={styles.copy}
+            />
+            <Highlight
+              theme={theme === 'light' ? themes.oneLight : themes.oneDark}
+              code={markdown}
+              language='markdown'
+            >
+              {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                <pre
+                  className={cn(className, styles.pre)}
+                  style={style}
+                >
+                  <code>
+                    {tokens.map((line, index) => (
+                      <div
+                        {...getLineProps({ line, key: index })}
+                        key={index}
+                      >
+                        {line.map((token, key) => (
+                          <span
+                            {...getTokenProps({ token, key })}
+                            key={key}
+                          />
+                        ))}
+                      </div>
+                    ))}
+                  </code>
+                </pre>
+              )}
+            </Highlight>
+          </CardBody>
+        </Card>
       </div>
       <ToolContentText>
         Данный инструмент существенно ускоряет процесс верстки и дает
