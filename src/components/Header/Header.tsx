@@ -17,13 +17,15 @@ import styles from './Header.module.scss';
 import Logo from './img/sts-logo.svg';
 
 export const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Navbar
-      position='static'
       isBordered
-      className='py-3'
+      className='md:py-3'
+      maxWidth='xl'
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarBrand>
         <Link
@@ -41,7 +43,7 @@ export const Header = () => {
         className={styles.nav}
         justify='center'
       >
-        <NavbarItem>
+        <NavbarItem isActive>
           <Link
             href='/tools'
             className={styles.link}
@@ -52,16 +54,14 @@ export const Header = () => {
       </NavbarContent>
       <NavbarContent justify='end'>
         <ThemeSwitcher />
-        <NavbarMenuToggle
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          className={styles.menuToggle}
-        />
+        <NavbarMenuToggle className={styles.menuToggle} />
       </NavbarContent>
       <NavbarMenu>
         <NavbarMenuItem>
           <Link
             href='/tools'
             className={styles.link}
+            onClick={() => setIsMenuOpen(false)}
           >
             Инструменты
           </Link>
