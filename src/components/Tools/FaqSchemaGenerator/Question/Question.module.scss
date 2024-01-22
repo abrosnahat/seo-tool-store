@@ -1,0 +1,24 @@
+.faqItem {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.faqInputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.delete {
+  cursor: pointer;
+  pointer-events: all;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}

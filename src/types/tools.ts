@@ -5,4 +5,5 @@ export type ToolType =
   | 'convertRegister'
   | 'deleteDuplicate'
   | 'wordCombiner'
-  | 'lineCounter';
+  | 'lineCounter'
+  | 'faqSchemaGenerator';
