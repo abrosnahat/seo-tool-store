@@ -2,18 +2,60 @@
 
 import { ToolContent } from '@/components/ToolContent/ToolContent';
 import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
-import { ClearText } from '@/ui-kit/ClearText/ClearText';
-import { Input } from '@/ui-kit/Input';
-import { Select } from '@/ui-kit/Select/Select';
-import { Textarea } from '@/ui-kit/Textarea';
+import { CopyText } from '@/ui-kit/CopyText/CopyText';
+import { getHtmlCode, getJsonLdScript } from '@/utils/faqSchemeGenerator';
+import {
+  Button,
+  Card,
+  CardBody,
+  Select,
+  SelectItem,
+  Textarea,
+} from '@nextui-org/react';
 import Image from 'next/image';
-import { useForm } from 'react-hook-form';
+import { useEffect, useState } from 'react';
+import { Controller, useFieldArray, useForm } from 'react-hook-form';
 import styles from './FaqSchemaGenerator.module.scss';
-import DeleteIcon from './img/delete.svg';
+import { Question } from './Question/Question';
 import ExampleImg from './img/example.png';
 
 export const FaqSchemaGenerator = () => {
-  const form = useForm();
+  const [value, setValue] = useState<string>();
+
+  const form = useForm({
+    defaultValues: {
+      questions: [{ question: '', answer: '' }],
+      json: '',
+      html: 'html',
+    },
+  });
+  const { fields, append, remove } = useFieldArray({
+    name: 'questions',
+    control: form.control,
+  });
+
+  useEffect(() => {
+    const jsonLdData = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: form.getValues('questions').map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    };
+
+    form.setValue('json', getJsonLdScript(jsonLdData)),
+      [form, form.watch('questions')];
+  });
+
+  useEffect(() => {
+    form.setValue('html', getHtmlCode(form.getValues('questions'))),
+      [form, form.watch('questions')];
+  });
 
   return (
     <ToolContent>
@@ -27,48 +69,80 @@ export const FaqSchemaGenerator = () => {
             <b>FAQs</b>
           </ToolContentText>
           <div className={styles.block}>
-            <div className={styles.faqItem}>
-              <div className={styles.faqInputs}>
-                <Input />
-                <Textarea />
-              </div>
-              <Image
-                className={styles.delete}
-                width={25}
-                src={DeleteIcon}
-                alt='Delete icon'
+            {fields.map((field, index) => (
+              <Question
+                key={field.id}
+                id={index}
+                control={form.control}
+                remove={remove}
               />
-            </div>
-            <div className={styles.faqItem}>
-              <div className={styles.faqInputs}>
-                <Input />
-                <Textarea />
-              </div>
-              <Image
-                className={styles.delete}
-                width={25}
-                src={DeleteIcon}
-                alt='Delete icon'
-              />
-            </div>
+            ))}
+
+            <Button
+              variant='shadow'
+              color='primary'
+              onClick={() => append({ question: '', answer: '' })}
+            >
+              Добавить вопрос
+            </Button>
           </div>
         </div>
         <div className={styles.block}>
           <ToolContentText>
             <b>Код</b>
           </ToolContentText>
-          <Select
-            options={[{ label: 'biba', value: 'bo' }]}
-            onChange={() => null}
-          />
-          <Textarea
-            rows={12}
-            placeholder='Введите текст'
-            endAdornment={
-              <ClearText onClick={() => form.setValue('text', '')} />
-            }
-            {...form.register('text')}
-          />
+          <Card>
+            <CardBody className='gap-4'>
+              <Select
+                className='max-w-xs'
+                aria-label='Select code format'
+                labelPlacement='outside'
+                variant='faded'
+                defaultSelectedKeys={['json']}
+                onChange={(e) => setValue(e.target.value)}
+              >
+                {SELECT_ITEMS.map((item) => (
+                  <SelectItem
+                    key={item.value}
+                    value={item.value}
+                  >
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </Select>
+
+              <Controller
+                name='html'
+                control={form.control}
+                render={({ field }) => (
+                  <Textarea
+                    {...field}
+                    className={value !== 'html' ? 'hidden' : ''}
+                    minRows={12}
+                    maxRows={30}
+                    variant='faded'
+                    color='primary'
+                    endContent={<CopyText text={field.value} />}
+                  />
+                )}
+              />
+              <Controller
+                name='json'
+                control={form.control}
+                render={({ field }) => (
+                  <Textarea
+                    {...field}
+                    className={value === 'html' ? 'hidden' : ''}
+                    minRows={12}
+                    maxRows={30}
+                    variant='faded'
+                    color='primary'
+                    endContent={<CopyText text={field.value} />}
+                  />
+                )}
+              />
+            </CardBody>
+          </Card>
         </div>
       </div>
 
@@ -76,7 +150,7 @@ export const FaqSchemaGenerator = () => {
         <ToolContentText>
           Микроразметка FAQ необходима для того, чтобы:
         </ToolContentText>
-        <ul className={styles.textList}>
+        <ul className='list-inside list-disc'>
           <li>увеличить видимость сайта в результатах поиска Google;</li>
           <li>предоставить дополнительную информацию в ответ на запрос.</li>
           <li>привлечь внимание пользователя и повысить CTR.</li>
@@ -89,7 +163,7 @@ export const FaqSchemaGenerator = () => {
         alt='Example'
       />
 
-      <h2>Как пользоваться инструментом </h2>
+      <h2 className='text-2xl font-bold'>Как пользоваться инструментом </h2>
       <ToolContentText>
         Заполните в форме “FAQs”, такие поля как вопрос и ответ и нажмите кнопку
         “Добавить вопрос”. Инструмент автоматически составит работающий код
@@ -104,3 +178,21 @@ export const FaqSchemaGenerator = () => {
     </ToolContent>
   );
 };
+
+const SELECT_ITEMS = [
+  {
+    label: 'JSON-LD',
+    value: 'json',
+  },
+  {
+    label: 'HTML',
+    value: 'html',
+  },
+];
+
+const JSON_DEFAULT = `<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":
+[]
+}
+</script>
+<!-- FAQPage Code Generated by https://seotoolstore.ru/tools/faq-schema-generator/ -->`;

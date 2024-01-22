@@ -1,6 +1,7 @@
 @import 'mixins';
 
 .tool {
+  width: 100%;
   display: flex;
   gap: 30px;
 
@@ -11,10 +12,17 @@
 
 .faq,
 .code {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.faq {
+  min-width: 40%;
+}
+
+.code {
+  width: 60%;
 }
 
 .block {
@@ -22,33 +30,6 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-}
-
-.faqItem {
-  display: flex;
-  gap: 5px;
-  padding: 15px;
-  border-radius: 15px;
-
-  @include boxShadow;
-}
-
-.faqInputs {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.delete {
-  cursor: pointer;
-  pointer-events: all;
-  opacity: 0.7;
-  transition: opacity 0.3s;
-
-  &:hover {
-    opacity: 1;
-  }
 }
 
 .text {
@@ -60,10 +41,6 @@
   @include mq(m) {
     font-size: 16px;
   }
-}
-
-.textList {
-  padding-left: 30px;
 }
 
 .example {

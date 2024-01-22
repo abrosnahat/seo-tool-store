@@ -37,6 +37,7 @@ export default function RootLayout({
           className={cn(styles.bgLeft, 'dark:block')}
           src={BgLeft}
           alt=''
+          priority={true}
         />
         <Image
           className={cn(styles.bgRight, 'dark:block')}
