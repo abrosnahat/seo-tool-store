@@ -1,4 +1,5 @@
 import { ToolType } from '@/types/tools';
+import cn from 'classnames';
 import Image from 'next/image';
 import { TOOLS_ICONS } from './constants';
 
@@ -14,9 +15,7 @@ export const ToolIcon: React.FC<ToolContentProps> = ({
   return (
     <Image
       src={TOOLS_ICONS[toolType]}
-      width={40}
-      height={40}
-      className={className}
+      className={cn(className, 'w-[40px] h-[40]')}
       alt='icon'
     />
   );
