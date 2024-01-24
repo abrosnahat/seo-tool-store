@@ -6,4 +6,5 @@ export type ToolType =
   | 'deleteDuplicate'
   | 'wordCombiner'
   | 'lineCounter'
-  | 'faqSchemaGenerator';
+  | 'faqSchemaGenerator'
+  | 'duplicateWordsCounter';

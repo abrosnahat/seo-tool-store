@@ -1,4 +1,5 @@
 import {
+  Pagination,
   TableBody,
   TableCell,
   TableColumn,
@@ -7,19 +8,57 @@ import {
   TableRow,
   getKeyValue,
 } from '@nextui-org/react';
+import { useMemo, useState } from 'react';
 
 interface TableProps {
-  rows: Record<string, string>[];
+  rows: { key: number }[];
   columns: { key: string; label: string }[];
+  className?: string;
+  withPagination?: boolean;
 }
 
-export const Table: React.FC<TableProps> = ({ rows, columns }) => {
+export const Table: React.FC<TableProps> = ({
+  rows,
+  columns,
+  className,
+  withPagination,
+}) => {
+  const [page, setPage] = useState(1);
+  const rowsPerPage = 10;
+
+  const pages = Math.ceil(rows.length / rowsPerPage);
+
+  const items = useMemo(() => {
+    const start = (page - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+
+    return rows.slice(start, end);
+  }, [page, rows]);
+
   return (
-    <TableComponent>
+    <TableComponent
+      aria-label='Table'
+      className={className}
+      bottomContent={
+        withPagination && (
+          <div className='flex w-full justify-center'>
+            <Pagination
+              isCompact
+              showControls
+              showShadow
+              color='primary'
+              page={page}
+              total={pages}
+              onChange={(page) => setPage(page)}
+            />
+          </div>
+        )
+      }
+    >
       <TableHeader columns={columns}>
         {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
       </TableHeader>
-      <TableBody items={rows}>
+      <TableBody items={items}>
         {(item) => (
           <TableRow key={item.key}>
             {(columnKey) => (
@@ -29,34 +68,5 @@ export const Table: React.FC<TableProps> = ({ rows, columns }) => {
         )}
       </TableBody>
     </TableComponent>
-
-    // <table className={styles.root}>
-    //   <thead className={styles.thead}>
-    //     <tr>
-    //       {headers.map((header, index) => (
-    //         <th
-    //           key={index}
-    //           className={styles.th}
-    //         >
-    //           {header}
-    //         </th>
-    //       ))}
-    //     </tr>
-    //   </thead>
-    //   <tbody>
-    //     {data.map((row, index) => (
-    //       <tr key={index}>
-    //         {Object.values(row).map((value, index) => (
-    //           <td
-    //             key={index}
-    //             className={styles.td}
-    //           >
-    //             {value}
-    //           </td>
-    //         ))}
-    //       </tr>
-    //     ))}
-    //   </tbody>
-    // </table>
   );
 };

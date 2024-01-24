@@ -78,6 +78,14 @@ export const TOOLS: Tools = [
         description:
           'Генерируйте метаданные для блока FAQ в формате HTML и JSON-LD.',
       },
+      {
+        id: '9',
+        type: 'duplicateWordsCounter',
+        url: 'duplicate-words-counter',
+        title: 'Подсчет повторяющихся слов',
+        description:
+          'Узнайте, какие слова или фразы чаще всего употребляются в вашем тексте.',
+      },
     ],
   },
 ];
