@@ -11,7 +11,7 @@ import {
 import { useMemo, useState } from 'react';
 
 interface TableProps {
-  rows: { key: number }[];
+  rows: any;
   columns: { key: string; label: string }[];
   className?: string;
   withPagination?: boolean;
@@ -59,7 +59,7 @@ export const Table: React.FC<TableProps> = ({
         {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
       </TableHeader>
       <TableBody items={items}>
-        {(item) => (
+        {(item: { key: number }) => (
           <TableRow key={item.key}>
             {(columnKey) => (
               <TableCell>{getKeyValue(item, columnKey)}</TableCell>

@@ -97,9 +97,9 @@ export const Transliteration = () => {
             { key: 'translit', label: 'Транслитерация' },
           ]}
           rows={[
-            { key: '1', ru: 'Привет', translit: 'Privet' },
-            { key: '2', ru: 'Таблица', translit: 'Tablica' },
-            { key: '3', ru: 'Загранпаспорт', translit: 'Zagranpasport' },
+            { key: 1, ru: 'Привет', translit: 'Privet' },
+            { key: 2, ru: 'Таблица', translit: 'Tablica' },
+            { key: 3, ru: 'Загранпаспорт', translit: 'Zagranpasport' },
           ]}
         />
       </div>
