@@ -9,4 +9,5 @@ export const TOOLS_TITLE: Record<ToolType, string> = {
   wordCombiner: 'Комбинатор ключевых слов и фраз',
   lineCounter: 'Посчитать количество строк онлайн',
   faqSchemaGenerator: 'Генератор FAQPage JSON-LD разметки',
+  duplicateWordsCounter: 'Поиск повторяющихся слов',
 };
