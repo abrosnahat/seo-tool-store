@@ -10,5 +10,5 @@ export const ToolContentText: React.FC<ToolContentTextProps> = ({
   children,
   className,
 }) => {
-  return <p className={cn(styles.root, className)}>{children}</p>;
+  return <div className={cn(styles.root, className)}>{children}</div>;
 };
