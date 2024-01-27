@@ -21,7 +21,7 @@ export const ToolsList = () => {
                 isPressable
                 isHoverable
               >
-                <CardBody>
+                <CardBody className='justify-center'>
                   <Link
                     href={`/tools/${tool.url}`}
                     className={styles.item}

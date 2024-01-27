@@ -43,6 +43,7 @@ export default function RootLayout({
           className={cn(styles.bgRight, 'dark:block')}
           src={BgRight}
           alt=''
+          priority={true}
         />
       </body>
     </html>

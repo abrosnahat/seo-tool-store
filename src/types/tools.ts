@@ -7,4 +7,5 @@ export type ToolType =
   | 'wordCombiner'
   | 'lineCounter'
   | 'faqSchemaGenerator'
-  | 'duplicateWordsCounter';
+  | 'duplicateWordsCounter'
+  | 'synonyms';

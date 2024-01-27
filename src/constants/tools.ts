@@ -10,4 +10,5 @@ export const TOOLS_TITLE: Record<ToolType, string> = {
   lineCounter: 'Посчитать количество строк онлайн',
   faqSchemaGenerator: 'Генератор FAQPage JSON-LD разметки',
   duplicateWordsCounter: 'Поиск повторяющихся слов',
+  synonyms: 'Синонимы онлайн',
 };
