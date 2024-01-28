@@ -91,8 +91,15 @@ export const TOOLS: Tools = [
         type: 'synonyms',
         url: 'synonyms',
         title: 'Словарь русских синонимов',
+        description: 'Поможет подобрать синоним к слову любой тематики.',
+      },
+      {
+        id: '11',
+        type: 'openGraphGenerator',
+        url: 'open-graph-generator',
+        title: 'Генератор мета-тегов Open Graph',
         description:
-          'Поможет подобрать синонимы к словам в тексте без потери смысла.',
+          'Создайте привлекательное превью при публикации ссылки в соцсетях.',
       },
     ],
   },

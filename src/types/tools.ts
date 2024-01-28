@@ -8,4 +8,5 @@ export type ToolType =
   | 'lineCounter'
   | 'faqSchemaGenerator'
   | 'duplicateWordsCounter'
-  | 'synonyms';
+  | 'synonyms'
+  | 'openGraphGenerator';
