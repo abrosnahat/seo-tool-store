@@ -6,6 +6,7 @@ import DuplicateWordsCounterIcon from './img/duplicate-words-counter.svg';
 import FaqSchemaGeneratorIcon from './img/faq-schema-generator.svg';
 import HtmlRedactor from './img/html-redactor.svg';
 import LineCounterIcon from './img/line-counter.svg';
+import OpenGraphGeneratorIcon from './img/open-graph-generator.svg';
 import SynonymsIcon from './img/synonyms.svg';
 import TextCounterIcon from './img/text-counter.svg';
 import TransliterationIcon from './img/transliteration.svg';
@@ -22,4 +23,5 @@ export const TOOLS_ICONS: Record<ToolType, ImageProps['src']> = {
   faqSchemaGenerator: FaqSchemaGeneratorIcon,
   duplicateWordsCounter: DuplicateWordsCounterIcon,
   synonyms: SynonymsIcon,
+  openGraphGenerator: OpenGraphGeneratorIcon,
 };

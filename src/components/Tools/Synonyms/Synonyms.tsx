@@ -3,6 +3,7 @@
 import { ToolContent } from '@/components/ToolContent/ToolContent';
 import { ToolContentText } from '@/components/ToolContentText/ToolContentText';
 import { Button, Card, CardBody, Input } from '@nextui-org/react';
+import { motion } from 'framer-motion';
 import { Controller, useForm } from 'react-hook-form';
 import { useSynonymMap } from './hooks/useSynonymMap';
 
@@ -24,8 +25,9 @@ export const Synonyms = () => {
   return (
     <ToolContent>
       <ToolContentText>
-        Словарь синонимов русского языка - это бесплатный сервис выполняющий
-        подбор синонимов к словам в тексте без потери смысла.
+        Словарь синонимов русского языка — это бесплатный сервис выполняющий
+        подбор синонимов к словам без потери смысла. Словарь насчитывает более
+        100 тысяч синонимических рядов.
       </ToolContentText>
 
       <form
@@ -55,24 +57,36 @@ export const Synonyms = () => {
       </form>
 
       {form.watch('result').length > 1 && (
-        <div className='text-xl font-bold'>
-          Синонимы к слову «{form.getValues('word')}» найдено{' '}
-          {form.getValues('result').length}
-        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className='text-xl font-bold'>
+            Синонимы к слову «{form.getValues('word')}» найдено{' '}
+            {form.getValues('result').length}
+          </div>
+        </motion.div>
       )}
       {form.watch('result').length >= 1 && (
-        <Card>
-          <CardBody>
-            {form.watch('result').map((word, index) => (
-              <div
-                key={index}
-                className='text-lg py-2'
-              >
-                {word}
-              </div>
-            ))}
-          </CardBody>
-        </Card>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Card>
+            <CardBody>
+              {form.watch('result').map((word, index) => (
+                <div
+                  key={index}
+                  className='text-lg py-2'
+                >
+                  {word}
+                </div>
+              ))}
+            </CardBody>
+          </Card>
+        </motion.div>
       )}
 
       <h2 className='text-2xl font-bold'>Как работает словарь синонимов</h2>
@@ -83,8 +97,8 @@ export const Synonyms = () => {
       </ToolContentText>
       <ToolContentText>
         Для начала работы введите слово в поле формы поиска и нажмите кнопку
-        «Подобрать». Затем сервис в режиме реального времени подберет список
-        синонимов и отобразит в виде списка.
+        «Подобрать». Затем сервис в режиме реального времени подберет синонимы и
+        отобразит в виде списка с указанием их количества.
       </ToolContentText>
 
       <ToolContentText>

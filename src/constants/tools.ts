@@ -11,4 +11,5 @@ export const TOOLS_TITLE: Record<ToolType, string> = {
   faqSchemaGenerator: 'Генератор FAQPage JSON-LD разметки',
   duplicateWordsCounter: 'Поиск повторяющихся слов',
   synonyms: 'Синонимы онлайн',
+  openGraphGenerator: 'Open Graph Генератор',
 };

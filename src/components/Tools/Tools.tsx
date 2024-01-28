@@ -5,6 +5,7 @@ import { DuplicateWordsCounter } from './DuplicateWordsCounter/DuplicateWordsCou
 import { FaqSchemaGenerator } from './FaqSchemaGenerator/FaqSchemaGenerator';
 import { HtmlRedactor } from './HtmlRedactor/HtmlRedactor';
 import { LineCounter } from './LineCounter/LineCounter';
+import { OpenGraphGenerator } from './OpenGraphGenerator/OpenGraphGenerator';
 import { Synonyms } from './Synonyms/Synonyms';
 import { TextCounter } from './TextCounter/TextCounter';
 import { Transliteration } from './Transliteration/Transliteration';
@@ -26,6 +27,7 @@ export const Tools: React.FC<ToolsProps> = ({ tool }) => {
     faqSchemaGenerator: <FaqSchemaGenerator />,
     duplicateWordsCounter: <DuplicateWordsCounter />,
     synonyms: <Synonyms />,
+    openGraphGenerator: <OpenGraphGenerator />,
   };
 
   return <>{tools[tool]}</>;
