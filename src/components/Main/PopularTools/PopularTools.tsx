@@ -1,4 +1,4 @@
-import { Title } from '@/components/Title/Title';
+import { MainTitle } from '@/components/MainTitle/MainTitle';
 import { ToolIcon } from '@/components/ToolIcon/ToolIcon';
 import { TOOLS } from '@/data/tools';
 import { Card, CardBody } from '@nextui-org/react';
@@ -8,7 +8,7 @@ import styles from './PopularTools.module.scss';
 export const PopularTools = () => {
   return (
     <section className={styles.root}>
-      <Title>Популярные инструменты</Title>
+      <MainTitle>Популярные инструменты</MainTitle>
 
       <Card>
         <CardBody className={styles.tools}>

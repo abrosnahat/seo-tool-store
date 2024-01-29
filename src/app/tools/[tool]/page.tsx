@@ -1,6 +1,6 @@
-import { Title } from '@/components/Title/Title';
+import { ToolTitle } from '@/components/ToolTitle/ToolTitle';
 import { Tools } from '@/components/Tools/Tools';
-import { TOOLS_TITLE } from '@/constants/tools';
+import { TOOLS_META, TOOLS_TITLE } from '@/constants/tools';
 import { ToolType } from '@/types/tools';
 import { Breadcrumbs } from '@/ui-kit/Breadcrumbs/Breadcrumbs';
 import { camelize } from '@/utils/camelize';
@@ -15,7 +15,8 @@ export async function generateMetadata({
   params,
 }: ToolsProps): Promise<Metadata> {
   return {
-    title: TOOLS_TITLE[camelize(params.tool) as ToolType],
+    title: TOOLS_META[camelize(params.tool) as ToolType].title,
+    description: TOOLS_META[camelize(params.tool) as ToolType].description,
   };
 }
 
@@ -25,7 +26,7 @@ export default function ToolPage({ params }: ToolsProps) {
   return (
     <div className={styles.root}>
       <Breadcrumbs />
-      <Title>{TOOLS_TITLE[toolType]}</Title>
+      <ToolTitle>{TOOLS_TITLE[toolType]}</ToolTitle>
       <Tools tool={toolType} />
     </div>
   );

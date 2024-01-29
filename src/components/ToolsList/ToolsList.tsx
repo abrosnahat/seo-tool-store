@@ -1,19 +1,20 @@
 import { TOOLS } from '@/data/tools';
 import { Card, CardBody } from '@nextui-org/react';
 import Link from 'next/link';
-import { Title } from '../Title/Title';
 import { ToolIcon } from '../ToolIcon/ToolIcon';
+import { ToolTitle } from '../ToolTitle/ToolTitle';
 import styles from './ToolsList.module.scss';
 
 export const ToolsList = () => {
   return (
     <div className={styles.root}>
+      <ToolTitle className='mb-6'>SEO инструменты</ToolTitle>
       {TOOLS.map((category) => (
         <div
           className={styles.category}
           key={category.title}
         >
-          <Title>{category.title}</Title>
+          <h2 className='text-2xl font-bold'>{category.title}</h2>
           <div className={styles.tools}>
             {category.items.map((tool) => (
               <Link

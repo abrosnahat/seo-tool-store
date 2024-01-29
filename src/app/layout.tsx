@@ -16,7 +16,10 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'SEO Tool Store',
+  title:
+    'SEO Tool Store - онлайн инструменты для автоматизации рабочих процессов',
+  description:
+    'Бесплатный сервис для автоматизации рутинных задач для специалистов из IT и Digital сферы. Большой набор инструментов, который постоянно пополняется. Сосредоточьтесь на работе вместе с нами.',
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
 };
 

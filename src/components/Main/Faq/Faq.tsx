@@ -1,6 +1,6 @@
 'use client';
 
-import { Title } from '@/components/Title/Title';
+import { MainTitle } from '@/components/MainTitle/MainTitle';
 import { Accordion, AccordionItem } from '@nextui-org/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -10,7 +10,7 @@ import styles from './Faq.module.scss';
 export const Faq = () => {
   return (
     <section className={styles.root}>
-      <Title>FAQ</Title>
+      <MainTitle>FAQ</MainTitle>
 
       <Accordion
         variant='shadow'

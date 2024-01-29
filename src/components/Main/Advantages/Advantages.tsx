@@ -1,4 +1,4 @@
-import { Title } from '@/components/Title/Title';
+import { MainTitle } from '@/components/MainTitle/MainTitle';
 import { Card, CardBody } from '@nextui-org/react';
 import Image from 'next/image';
 import styles from './Advantages.module.scss';
@@ -12,7 +12,7 @@ import UsersIcon from './img/users.png';
 export const Advantages = () => {
   return (
     <section className={styles.root}>
-      <Title>Наши преимущества</Title>
+      <MainTitle>Наши преимущества</MainTitle>
       <div className={styles.advantages}>
         {ADVANTAGES.map((advantage, index) => (
           <Card key={index}>
