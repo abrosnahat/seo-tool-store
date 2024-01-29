@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import Image from 'next/image';
 import './globals.css';
+import MetaImage from './img/968x504.jpg';
 import BgLeft from './img/bg-left.png';
 import BgRight from './img/bg-right.png';
 import styles from './layout.module.scss';
@@ -16,11 +17,14 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
   title:
     'SEO Tool Store - онлайн инструменты для автоматизации рабочих процессов',
   description:
     'Бесплатный сервис для автоматизации рутинных задач для специалистов из IT и Digital сферы. Большой набор инструментов, который постоянно пополняется. Сосредоточьтесь на работе вместе с нами.',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+  openGraph: {
+    images: [MetaImage.src],
+  },
 };
 
 export default function RootLayout({
