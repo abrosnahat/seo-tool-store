@@ -5,6 +5,7 @@ import { ToolType } from '@/types/tools';
 import { Breadcrumbs } from '@/ui-kit/Breadcrumbs/Breadcrumbs';
 import { camelize } from '@/utils/camelize';
 import { Metadata } from 'next';
+import MetaImage from './img/968x504.jpg';
 import styles from './page.module.scss';
 
 interface ToolsProps {
@@ -17,6 +18,11 @@ export async function generateMetadata({
   return {
     title: TOOLS_META[camelize(params.tool) as ToolType].title,
     description: TOOLS_META[camelize(params.tool) as ToolType].description,
+    openGraph: {
+      title: TOOLS_META[camelize(params.tool) as ToolType].title,
+      description: TOOLS_META[camelize(params.tool) as ToolType].description,
+      images: [MetaImage.src],
+    },
   };
 }
 
