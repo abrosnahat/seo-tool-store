@@ -2,15 +2,15 @@ import { ToolType } from '@/types/tools';
 
 export const TOOLS_TITLE: Record<ToolType, string> = {
   transliteration: 'Транслитерация текста',
-  textCounter: 'Подсчет длины текста и строки',
+  textCounter: 'Подсчет длины текста и слов',
   htmlRedactor: 'HTML редактор онлайн',
   convertRegister: 'Конвертер регистров',
-  deleteDuplicate: 'Удаление дубликатов',
-  wordCombiner: 'Комбинатор ключевых слов и фраз',
-  lineCounter: 'Посчитать количество строк онлайн',
-  faqSchemaGenerator: 'Генератор FAQPage JSON-LD разметки',
+  deleteDuplicate: 'Удаление дубликатов строк',
+  wordCombiner: 'Комбинатор ключевых фраз',
+  lineCounter: 'Посчитать количество строк',
+  faqSchemaGenerator: 'FAQ Schema Generator',
   duplicateWordsCounter: 'Поиск повторяющихся слов',
-  synonyms: 'Синонимы онлайн',
+  synonyms: 'Словарь синонимов онлайн',
   openGraphGenerator: 'Open Graph Генератор',
 };
 
