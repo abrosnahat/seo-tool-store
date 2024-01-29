@@ -1,4 +1,4 @@
-import { Title } from '@/components/Title/Title';
+import { ToolTitle } from '@/components/ToolTitle/ToolTitle';
 import { Tools } from '@/components/Tools/Tools';
 import { TOOLS_META, TOOLS_TITLE } from '@/constants/tools';
 import { ToolType } from '@/types/tools';
@@ -26,7 +26,7 @@ export default function ToolPage({ params }: ToolsProps) {
   return (
     <div className={styles.root}>
       <Breadcrumbs />
-      <Title>{TOOLS_TITLE[toolType]}</Title>
+      <ToolTitle>{TOOLS_TITLE[toolType]}</ToolTitle>
       <Tools tool={toolType} />
     </div>
   );

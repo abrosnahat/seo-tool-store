@@ -1,6 +1,6 @@
 'use client';
 
-import { Title } from '@/components/Title/Title';
+import { MainTitle } from '@/components/MainTitle/MainTitle';
 import { Card, CardBody } from '@nextui-org/react';
 import Image from 'next/image';
 import 'swiper/css';
@@ -19,7 +19,7 @@ import StarsIcon from './img/stars.svg';
 export const Reviews = () => {
   return (
     <section className={styles.root}>
-      <Title>Отзывы</Title>
+      <MainTitle>Отзывы</MainTitle>
 
       <Swiper
         slidesPerView={1}

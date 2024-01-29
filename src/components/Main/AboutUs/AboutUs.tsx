@@ -1,4 +1,4 @@
-import { Title } from '@/components/Title/Title';
+import { MainTitle } from '@/components/MainTitle/MainTitle';
 import { Button } from '@nextui-org/react';
 import Link from 'next/link';
 import styles from './AboutUs.module.scss';
@@ -6,7 +6,7 @@ import styles from './AboutUs.module.scss';
 export const AboutUs = () => {
   return (
     <section className={styles.root}>
-      <Title>Коротко о нас</Title>
+      <MainTitle>Коротко о нас</MainTitle>
       <div className={styles.content}>
         <div className={styles.wrapper}>
           <p className={styles.text}>
