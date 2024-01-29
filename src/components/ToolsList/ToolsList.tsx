@@ -16,16 +16,16 @@ export const ToolsList = () => {
           <Title>{category.title}</Title>
           <div className={styles.tools}>
             {category.items.map((tool) => (
-              <Card
+              <Link
                 key={tool.id}
-                isPressable
-                isHoverable
+                href={`/tools/${tool.url}`}
               >
-                <CardBody className='justify-center'>
-                  <Link
-                    href={`/tools/${tool.url}`}
-                    className={styles.item}
-                  >
+                <Card
+                  isPressable
+                  isHoverable
+                  className='w-full h-full'
+                >
+                  <CardBody className='flex-row gap-3 items-center'>
                     <ToolIcon toolType={tool.type} />
                     <div className={styles.text}>
                       <div className={styles.title}>{tool.title}</div>
@@ -33,9 +33,9 @@ export const ToolsList = () => {
                         {tool.description}
                       </div>
                     </div>
-                  </Link>
-                </CardBody>
-              </Card>
+                  </CardBody>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
