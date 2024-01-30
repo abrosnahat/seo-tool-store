@@ -55,7 +55,7 @@ export const DeleteDuplicate = () => {
         <ToolContentText>
           Для того, чтобы удалить дубликаты из списка необходимо:
         </ToolContentText>
-        <ol className={styles.textList}>
+        <ol className='list-inside list-decimal'>
           <li>
             Вставить скопированный список ключевых слов в специальную форму и
             нажать кнопку «Удалить дубли». При добавлении слов вручную с

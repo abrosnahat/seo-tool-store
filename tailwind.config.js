@@ -14,6 +14,9 @@ module.exports = {
           DEFAULT: '#6c5fbc',
         },
       },
+      dropShadow: {
+        '3xl': '0px 10px 25px rgba(70, 70, 70, 0.5)',
+      },
     },
   },
   darkMode: 'class',
