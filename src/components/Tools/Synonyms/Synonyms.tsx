@@ -19,7 +19,7 @@ export const Synonyms = () => {
   const onSubmit = (data: { word: string }) =>
     form.setValue(
       'result',
-      synonymMap.get(data.word) || ['Синонимов не найдено']
+      synonymMap.get(data.word.toLowerCase()) || ['Синонимов не найдено']
     );
 
   return (

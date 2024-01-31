@@ -451,7 +451,7 @@ export const OpenGraphGenerator = () => {
           >
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
               <pre
-                className={cn(className, 'overflow-y-scroll !bg-inherit')}
+                className={cn(className, 'overflow-y-auto !bg-inherit')}
                 style={style}
               >
                 <code>
