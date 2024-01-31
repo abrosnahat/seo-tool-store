@@ -19,6 +19,7 @@ export async function generateMetadata({
     title: TOOLS_META[camelize(params.tool) as ToolType].title,
     description: TOOLS_META[camelize(params.tool) as ToolType].description,
     openGraph: {
+      type: 'website',
       title: TOOLS_META[camelize(params.tool) as ToolType].title,
       description: TOOLS_META[camelize(params.tool) as ToolType].description,
       images: [MetaImage.src],
