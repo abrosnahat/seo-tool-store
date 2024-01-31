@@ -21,20 +21,26 @@ export const Breadcrumbs = () => {
       {
         '@type': 'ListItem',
         position: 1,
-        item: 'https://seotoolstore.ru',
-        name: 'seotoolstore.ru',
+        item: {
+          '@id': 'https://seotoolstore.ru',
+          name: 'seotoolstore.ru',
+        },
       },
       {
         '@type': 'ListItem',
         position: 2,
-        item: 'https://seotoolstore.ru/tools',
-        name: 'Инструменты',
+        item: {
+          '@id': 'https://seotoolstore.ru/tools',
+          name: 'Инструменты',
+        },
       },
       {
         '@type': 'ListItem',
         position: 3,
-        item: `https://seotoolstore.ru/tools/${pathnameArray[1]}`,
-        name: TOOLS_TITLE[camelize(pathnameArray[1]) as ToolType],
+        item: {
+          '@id': `https://seotoolstore.ru/tools/${pathnameArray[1]}`,
+          name: TOOLS_TITLE[camelize(pathnameArray[1]) as ToolType],
+        },
       },
     ],
   };
