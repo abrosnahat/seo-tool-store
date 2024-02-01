@@ -1,2 +1,25 @@
-User-agent: *
+User-agent: Yandex
+Disallow: *?
+Disallow: *utm
+
+
+
+User-agent: YandexBot
+Disallow: *?
+Clean-param: utm_source&utm_medium&utm_term&utm_content&utm_campaign
+
+
+
+User-agent: Googlebot
+Disallow: *?
+Disallow: *utm
+
+
+User-agent: AhrefsBot
 Disallow: /
+
+
+
+
+Sitemap: https://seotoolstore.ru/sitemap.xml
+Host: seotoolstore.ru
