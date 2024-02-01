@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     'SEO Tool Store - онлайн инструменты для автоматизации рабочих процессов',
   description:
     'Бесплатный сервис для автоматизации рутинных задач для специалистов из IT и Digital сферы. Большой набор инструментов, который постоянно пополняется. Сосредоточьтесь на работе вместе с нами.',
+  alternates: {
+    canonical: `https://seotoolstore.ru`,
+  },
   verification: {
     yandex: '77c4cab527faf31a',
     google: 'yxJNyYqHHJ9YYOII5SJqwtFSaPhNR35qbFzLJof_UK8',
