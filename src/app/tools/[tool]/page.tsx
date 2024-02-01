@@ -18,6 +18,9 @@ export async function generateMetadata({
   return {
     title: TOOLS_META[camelize(params.tool) as ToolType].title,
     description: TOOLS_META[camelize(params.tool) as ToolType].description,
+    alternates: {
+      canonical: `https://seotoolstore.ru/tools/${params.tool}`,
+    },
     openGraph: {
       type: 'website',
       title: TOOLS_META[camelize(params.tool) as ToolType].title,

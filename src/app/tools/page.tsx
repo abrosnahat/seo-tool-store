@@ -6,6 +6,9 @@ export const metadata: Metadata = {
     'Инструменты для SEO-специалистов, веб-мастера, копирайтера - всё для анализа и продвижения',
   description:
     'Комплект инструментов для веб разработки и сео оптимизации. Используйте наш сервис в работе с текстом и программным кодом без регистрации.',
+  alternates: {
+    canonical: `https://seotoolstore.ru/tools`,
+  },
 };
 
 export default function ToolsPage() {
