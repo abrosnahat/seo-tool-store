@@ -2,11 +2,11 @@
 
 import { TOOLS_TITLE } from '@/constants/tools';
 import { ToolType } from '@/types/tools';
-import { camelize } from '@/utils/camelize';
 import {
   BreadcrumbItem,
   Breadcrumbs as BreadcrumbsComponents,
 } from '@nextui-org/react';
+import { camelCase } from 'lodash';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -39,7 +39,7 @@ export const Breadcrumbs = () => {
         position: 3,
         item: {
           '@id': `https://seotoolstore.ru/tools/${pathnameArray[1]}`,
-          name: TOOLS_TITLE[camelize(pathnameArray[1]) as ToolType],
+          name: TOOLS_TITLE[camelCase(pathnameArray[1]) as ToolType],
         },
       },
     ],
@@ -56,7 +56,7 @@ export const Breadcrumbs = () => {
             {path === 'tools' ? (
               <Link href={`/${path}`}>Инструменты</Link>
             ) : (
-              TOOLS_TITLE[camelize(path) as ToolType]
+              TOOLS_TITLE[camelCase(path) as ToolType]
             )}
           </BreadcrumbItem>
         ))}

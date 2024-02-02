@@ -8,8 +8,11 @@ import Image from 'next/image';
 import Script from 'next/script';
 import './globals.css';
 import MetaImage from './img/968x504.jpg';
+import AppleTouchIcon from './img/apple-touch-icon.png';
 import BgLeft from './img/bg-left.png';
 import BgRight from './img/bg-right.png';
+import Favicon16x16 from './img/favicon-16x16.png';
+import Favicon32x32 from './img/favicon-32x32.png';
 import styles from './layout.module.scss';
 import { Providers } from './providers';
 
@@ -34,6 +37,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     images: [MetaImage.src],
+  },
+  icons: {
+    icon: [
+      { url: Favicon32x32.src, sizes: '32x32', type: 'image/png' },
+      { url: Favicon16x16.src, sizes: '16x16', type: 'image/png' },
+    ],
+    apple: { url: AppleTouchIcon.src, sizes: '180x180' },
   },
 };
 

@@ -3,7 +3,7 @@ import { Tools } from '@/components/Tools/Tools';
 import { TOOLS_META, TOOLS_TITLE } from '@/constants/tools';
 import { ToolType } from '@/types/tools';
 import { Breadcrumbs } from '@/ui-kit/Breadcrumbs/Breadcrumbs';
-import { camelize } from '@/utils/camelize';
+import { camelCase } from 'lodash';
 import { Metadata } from 'next';
 import MetaImage from './img/968x504.jpg';
 import styles from './page.module.scss';
@@ -16,22 +16,22 @@ export async function generateMetadata({
   params,
 }: ToolsProps): Promise<Metadata> {
   return {
-    title: TOOLS_META[camelize(params.tool) as ToolType].title,
-    description: TOOLS_META[camelize(params.tool) as ToolType].description,
+    title: TOOLS_META[camelCase(params.tool) as ToolType].title,
+    description: TOOLS_META[camelCase(params.tool) as ToolType].description,
     alternates: {
       canonical: `https://seotoolstore.ru/tools/${params.tool}`,
     },
     openGraph: {
       type: 'website',
-      title: TOOLS_META[camelize(params.tool) as ToolType].title,
-      description: TOOLS_META[camelize(params.tool) as ToolType].description,
+      title: TOOLS_META[camelCase(params.tool) as ToolType].title,
+      description: TOOLS_META[camelCase(params.tool) as ToolType].description,
       images: [MetaImage.src],
     },
   };
 }
 
 export default function ToolPage({ params }: ToolsProps) {
-  const toolType = camelize(params.tool) as ToolType;
+  const toolType = camelCase(params.tool) as ToolType;
 
   return (
     <div className={styles.root}>
