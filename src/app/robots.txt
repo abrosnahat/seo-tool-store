@@ -1,19 +1,19 @@
 User-agent: Yandex
 Disallow: *?
 Disallow: *utm
-
+Disallow: /preload
 
 
 User-agent: YandexBot
 Disallow: *?
 Clean-param: utm_source&utm_medium&utm_term&utm_content&utm_campaign
-
+Disallow: /preload
 
 
 User-agent: Googlebot
 Disallow: *?
 Disallow: *utm
-
+Disallow: /preload
 
 User-agent: AhrefsBot
 Disallow: /
