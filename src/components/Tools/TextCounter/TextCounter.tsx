@@ -33,7 +33,7 @@ export const TextCounter = () => {
             minRows={12}
             variant='faded'
             color='primary'
-            placeholder='Введите текст'
+            placeholder='Введите текст '
             endContent={<ClearText onClick={() => form.setValue('text', '')} />}
           />
         )}
