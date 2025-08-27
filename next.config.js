@@ -3,11 +3,11 @@
 const path = require('path');
 
 const nextConfig = {
-  images: {
-    unoptimized: true,
-  },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
+  },
+  images: {
+    unoptimized: true,
   },
 };
 
